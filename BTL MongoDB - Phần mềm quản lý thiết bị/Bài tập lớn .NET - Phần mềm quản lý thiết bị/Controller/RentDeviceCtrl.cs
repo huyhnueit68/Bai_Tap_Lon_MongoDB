@@ -27,7 +27,7 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.Controller
         //Hàm xử lý hiển thị thiết bị lên combox.
         public void HienThiCbbThietBi(ComboBox cbo)
         {
-            cbo.DataSource = rentDeviceMng.LayDSThietBi().Tables[0];
+            cbo.DataSource = rentDeviceMng.LayDSThietBi().DataSource;
             cbo.DisplayMember = "Name_Device";
             cbo.ValueMember = "Id_Device";
         }

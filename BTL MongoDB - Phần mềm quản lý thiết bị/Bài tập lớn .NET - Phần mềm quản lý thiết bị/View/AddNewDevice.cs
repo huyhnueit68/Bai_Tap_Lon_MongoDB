@@ -30,8 +30,8 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
 
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
+            txtId_Device.Clear();
             txtName_Device.Clear();
-            txtQty_Device.Clear();
             txtPrice.Clear();
             txtFunction_Device.Clear();
             txtRoom.Clear();
@@ -49,7 +49,7 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
                     switch (deviceCtrl.Them(objDevice))
                     {
                         case 0:
-                            text = "Vui lòng chọn mã tài khoản khác!";
+                            text = "Vui lòng chọn mã thiết bị khác!";
                             ThongBao(text);
                             break;
                         case 1:
@@ -72,7 +72,7 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
 
         private bool checkNullItem()
         {
-            if(txtFunction_Device.Text == "" || txtId_Type.Text == "" || txtName_Device.Text == "" || txtPrice.Text == "" || txtQty_Device.Text == "" || txtRoom.Text == "" || txtStatus_Device.Text == "")
+            if(txtFunction_Device.Text == "" || txtId_Type.Text == "" || txtName_Device.Text == "" || txtPrice.Text == "" || txtRoom.Text == "" || txtStatus_Device.Text == "")
             {
                 return false;
             }
@@ -81,8 +81,8 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
 
         private void LamMoi()
         {
+            txtId_Device.Clear();
             txtName_Device.Clear();
-            txtQty_Device.Clear();
             txtPrice.Clear();
             txtFunction_Device.Clear();
             txtRoom.Clear();
@@ -93,11 +93,12 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
         //Hàm xử lý lưu dữ liệu.
         private void GanDuLieu(Object.ObjDevice objDevice)
         {
+            objDevice.Id_Device = Convert.ToDouble(txtId_Device.Text.Trim());
             objDevice.Name_Device = txtName_Device.Text.Trim();
             objDevice.Price_Device = Convert.ToDouble(txtPrice.Text.Trim());
             objDevice.Function_Device = txtFunction_Device.Text.Trim();
-            objDevice.Room = txtRoom.Text.Trim();
             objDevice.Id_Type = Convert.ToDouble(txtId_Type.Text.Trim());
+            objDevice.Room = txtRoom.Text.Trim();
             objDevice.Status_Device = txtStatus_Device.Text.Trim();
         }
 

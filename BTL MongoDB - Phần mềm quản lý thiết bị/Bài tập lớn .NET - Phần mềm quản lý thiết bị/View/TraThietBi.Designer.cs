@@ -45,7 +45,6 @@
             this.btnTraTB = new System.Windows.Forms.Button();
             this.txtDate_Rent = new System.Windows.Forms.TextBox();
             this.lblUsername = new System.Windows.Forms.Label();
-            this.dgvListRentDevice = new System.Windows.Forms.DataGridView();
             this.errId_Rent = new System.Windows.Forms.ErrorProvider(this.components);
             this.errDay_Rent = new System.Windows.Forms.ErrorProvider(this.components);
             this.errDay_Pay = new System.Windows.Forms.ErrorProvider(this.components);
@@ -53,17 +52,19 @@
             this.errQty_Device = new System.Windows.Forms.ErrorProvider(this.components);
             this.errId_Customer = new System.Windows.Forms.ErrorProvider(this.components);
             this.errStatus_Rent = new System.Windows.Forms.ErrorProvider(this.components);
+            this.dgvListRentDevice = new System.Windows.Forms.DataGridView();
             this.Id_Rent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date_Rent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date_Pay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name_Device = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status_Device = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id_Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name_Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id_Device = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Qty_Device = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Room = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id_Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status_Rent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtQty_Device = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.Id_Group = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpThongTinTaiKhoan.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListRentDevice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errId_Rent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errDay_Rent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errDay_Pay)).BeginInit();
@@ -71,6 +72,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errQty_Device)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errId_Customer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errStatus_Rent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListRentDevice)).BeginInit();
             this.SuspendLayout();
             // 
             // grpThongTinTaiKhoan
@@ -79,8 +81,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpThongTinTaiKhoan.BackColor = System.Drawing.Color.Transparent;
-            this.grpThongTinTaiKhoan.Controls.Add(this.txtQty_Device);
-            this.grpThongTinTaiKhoan.Controls.Add(this.label5);
             this.grpThongTinTaiKhoan.Controls.Add(this.button1);
             this.grpThongTinTaiKhoan.Controls.Add(this.rdbTra);
             this.grpThongTinTaiKhoan.Controls.Add(this.rdbMuon);
@@ -101,9 +101,9 @@
             this.grpThongTinTaiKhoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpThongTinTaiKhoan.ForeColor = System.Drawing.Color.White;
             this.grpThongTinTaiKhoan.Location = new System.Drawing.Point(45, 15);
-            this.grpThongTinTaiKhoan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpThongTinTaiKhoan.Margin = new System.Windows.Forms.Padding(4);
             this.grpThongTinTaiKhoan.Name = "grpThongTinTaiKhoan";
-            this.grpThongTinTaiKhoan.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpThongTinTaiKhoan.Padding = new System.Windows.Forms.Padding(4);
             this.grpThongTinTaiKhoan.Size = new System.Drawing.Size(1069, 254);
             this.grpThongTinTaiKhoan.TabIndex = 27;
             this.grpThongTinTaiKhoan.TabStop = false;
@@ -115,7 +115,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button1.Location = new System.Drawing.Point(879, 150);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(169, 46);
             this.button1.TabIndex = 40;
@@ -127,8 +127,8 @@
             // 
             this.rdbTra.AutoSize = true;
             this.rdbTra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbTra.Location = new System.Drawing.Point(771, 212);
-            this.rdbTra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdbTra.Location = new System.Drawing.Point(771, 165);
+            this.rdbTra.Margin = new System.Windows.Forms.Padding(4);
             this.rdbTra.Name = "rdbTra";
             this.rdbTra.Size = new System.Drawing.Size(51, 22);
             this.rdbTra.TabIndex = 39;
@@ -140,8 +140,8 @@
             // 
             this.rdbMuon.AutoSize = true;
             this.rdbMuon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbMuon.Location = new System.Drawing.Point(644, 212);
-            this.rdbMuon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdbMuon.Location = new System.Drawing.Point(644, 165);
+            this.rdbMuon.Margin = new System.Windows.Forms.Padding(4);
             this.rdbMuon.Name = "rdbMuon";
             this.rdbMuon.Size = new System.Drawing.Size(67, 22);
             this.rdbMuon.TabIndex = 38;
@@ -152,7 +152,7 @@
             // txtId_Device
             // 
             this.txtId_Device.Location = new System.Drawing.Point(644, 53);
-            this.txtId_Device.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtId_Device.Margin = new System.Windows.Forms.Padding(4);
             this.txtId_Device.MaxLength = 20;
             this.txtId_Device.Name = "txtId_Device";
             this.txtId_Device.Size = new System.Drawing.Size(183, 24);
@@ -173,7 +173,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(499, 212);
+            this.label4.Location = new System.Drawing.Point(499, 165);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(78, 18);
@@ -182,8 +182,8 @@
             // 
             // txtId_Customer
             // 
-            this.txtId_Customer.Location = new System.Drawing.Point(644, 150);
-            this.txtId_Customer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtId_Customer.Location = new System.Drawing.Point(644, 103);
+            this.txtId_Customer.Margin = new System.Windows.Forms.Padding(4);
             this.txtId_Customer.MaxLength = 20;
             this.txtId_Customer.Name = "txtId_Customer";
             this.txtId_Customer.Size = new System.Drawing.Size(183, 24);
@@ -193,7 +193,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(499, 156);
+            this.label3.Location = new System.Drawing.Point(499, 109);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(114, 18);
@@ -203,7 +203,7 @@
             // txtDate_Pay
             // 
             this.txtDate_Pay.Location = new System.Drawing.Point(196, 160);
-            this.txtDate_Pay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDate_Pay.Margin = new System.Windows.Forms.Padding(4);
             this.txtDate_Pay.MaxLength = 20;
             this.txtDate_Pay.Name = "txtDate_Pay";
             this.txtDate_Pay.Size = new System.Drawing.Size(173, 24);
@@ -223,7 +223,7 @@
             // txtId_Rent
             // 
             this.txtId_Rent.Location = new System.Drawing.Point(196, 53);
-            this.txtId_Rent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtId_Rent.Margin = new System.Windows.Forms.Padding(4);
             this.txtId_Rent.MaxLength = 20;
             this.txtId_Rent.Name = "txtId_Rent";
             this.txtId_Rent.Size = new System.Drawing.Size(173, 24);
@@ -246,7 +246,7 @@
             this.btnTraTB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTraTB.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnTraTB.Location = new System.Drawing.Point(879, 53);
-            this.btnTraTB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTraTB.Margin = new System.Windows.Forms.Padding(4);
             this.btnTraTB.Name = "btnTraTB";
             this.btnTraTB.Size = new System.Drawing.Size(169, 46);
             this.btnTraTB.TabIndex = 21;
@@ -257,7 +257,7 @@
             // txtDate_Rent
             // 
             this.txtDate_Rent.Location = new System.Drawing.Point(196, 103);
-            this.txtDate_Rent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDate_Rent.Margin = new System.Windows.Forms.Padding(4);
             this.txtDate_Rent.MaxLength = 20;
             this.txtDate_Rent.Name = "txtDate_Rent";
             this.txtDate_Rent.Size = new System.Drawing.Size(173, 24);
@@ -273,26 +273,6 @@
             this.lblUsername.Size = new System.Drawing.Size(84, 18);
             this.lblUsername.TabIndex = 14;
             this.lblUsername.Text = "Ngày Mượn";
-            // 
-            // dgvListRentDevice
-            // 
-            this.dgvListRentDevice.BackgroundColor = System.Drawing.Color.LightBlue;
-            this.dgvListRentDevice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListRentDevice.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id_Rent,
-            this.Date_Rent,
-            this.Date_Pay,
-            this.Id_Device,
-            this.Qty_Device,
-            this.Id_Customer,
-            this.Status_Rent});
-            this.dgvListRentDevice.Location = new System.Drawing.Point(45, 289);
-            this.dgvListRentDevice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dgvListRentDevice.Name = "dgvListRentDevice";
-            this.dgvListRentDevice.RowHeadersWidth = 51;
-            this.dgvListRentDevice.Size = new System.Drawing.Size(1069, 234);
-            this.dgvListRentDevice.TabIndex = 28;
-            this.dgvListRentDevice.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvListRentDevice_MouseClick);
             // 
             // errId_Rent
             // 
@@ -322,13 +302,37 @@
             // 
             this.errStatus_Rent.ContainerControl = this;
             // 
+            // dgvListRentDevice
+            // 
+            this.dgvListRentDevice.BackgroundColor = System.Drawing.Color.LightBlue;
+            this.dgvListRentDevice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListRentDevice.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id_Rent,
+            this.Date_Rent,
+            this.Date_Pay,
+            this.Name_Device,
+            this.Status_Device,
+            this.Id_Type,
+            this.Name_Customer,
+            this.Id_Device,
+            this.Room,
+            this.Id_Customer,
+            this.Id_Group});
+            this.dgvListRentDevice.Location = new System.Drawing.Point(45, 277);
+            this.dgvListRentDevice.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvListRentDevice.Name = "dgvListRentDevice";
+            this.dgvListRentDevice.RowHeadersWidth = 51;
+            this.dgvListRentDevice.Size = new System.Drawing.Size(1078, 264);
+            this.dgvListRentDevice.TabIndex = 43;
+            this.dgvListRentDevice.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvListRentDevice_MouseClick_1);
+            // 
             // Id_Rent
             // 
             this.Id_Rent.DataPropertyName = "Id_Rent";
             this.Id_Rent.HeaderText = "Mã Mượn";
             this.Id_Rent.MinimumWidth = 6;
             this.Id_Rent.Name = "Id_Rent";
-            this.Id_Rent.Width = 110;
+            this.Id_Rent.Width = 125;
             // 
             // Date_Rent
             // 
@@ -337,7 +341,7 @@
             this.Date_Rent.MinimumWidth = 6;
             this.Date_Rent.Name = "Date_Rent";
             this.Date_Rent.ReadOnly = true;
-            this.Date_Rent.Width = 150;
+            this.Date_Rent.Width = 125;
             // 
             // Date_Pay
             // 
@@ -345,7 +349,39 @@
             this.Date_Pay.HeaderText = "Ngày Trả";
             this.Date_Pay.MinimumWidth = 6;
             this.Date_Pay.Name = "Date_Pay";
-            this.Date_Pay.Width = 150;
+            this.Date_Pay.Width = 125;
+            // 
+            // Name_Device
+            // 
+            this.Name_Device.DataPropertyName = "Name_Device";
+            this.Name_Device.HeaderText = "Tên Thiết Bị";
+            this.Name_Device.MinimumWidth = 6;
+            this.Name_Device.Name = "Name_Device";
+            this.Name_Device.Width = 125;
+            // 
+            // Status_Device
+            // 
+            this.Status_Device.DataPropertyName = "Status_Device";
+            this.Status_Device.HeaderText = "Trang Thái";
+            this.Status_Device.MinimumWidth = 6;
+            this.Status_Device.Name = "Status_Device";
+            this.Status_Device.Width = 125;
+            // 
+            // Id_Type
+            // 
+            this.Id_Type.DataPropertyName = "Id_Type";
+            this.Id_Type.HeaderText = "Mã Loại TB";
+            this.Id_Type.MinimumWidth = 6;
+            this.Id_Type.Name = "Id_Type";
+            this.Id_Type.Width = 125;
+            // 
+            // Name_Customer
+            // 
+            this.Name_Customer.DataPropertyName = "Name_Customer";
+            this.Name_Customer.HeaderText = "Tên Khách Hàng";
+            this.Name_Customer.MinimumWidth = 6;
+            this.Name_Customer.Name = "Name_Customer";
+            this.Name_Customer.Width = 125;
             // 
             // Id_Device
             // 
@@ -353,15 +389,15 @@
             this.Id_Device.HeaderText = "Mã Thiết Bị";
             this.Id_Device.MinimumWidth = 6;
             this.Id_Device.Name = "Id_Device";
-            this.Id_Device.Width = 110;
+            this.Id_Device.Width = 125;
             // 
-            // Qty_Device
+            // Room
             // 
-            this.Qty_Device.DataPropertyName = "Qty_Device";
-            this.Qty_Device.HeaderText = "Số Lượng";
-            this.Qty_Device.MinimumWidth = 6;
-            this.Qty_Device.Name = "Qty_Device";
-            this.Qty_Device.Width = 125;
+            this.Room.DataPropertyName = "Room";
+            this.Room.HeaderText = "Phòng";
+            this.Room.MinimumWidth = 6;
+            this.Room.Name = "Room";
+            this.Room.Width = 125;
             // 
             // Id_Customer
             // 
@@ -369,35 +405,15 @@
             this.Id_Customer.HeaderText = "Mã khách hàng";
             this.Id_Customer.MinimumWidth = 6;
             this.Id_Customer.Name = "Id_Customer";
-            this.Id_Customer.Width = 110;
+            this.Id_Customer.Width = 125;
             // 
-            // Status_Rent
+            // Id_Group
             // 
-            this.Status_Rent.DataPropertyName = "Status_Rent";
-            this.Status_Rent.HeaderText = "Trang Thái";
-            this.Status_Rent.MinimumWidth = 6;
-            this.Status_Rent.Name = "Status_Rent";
-            this.Status_Rent.Width = 125;
-            // 
-            // txtQty_Device
-            // 
-            this.txtQty_Device.Location = new System.Drawing.Point(644, 105);
-            this.txtQty_Device.Margin = new System.Windows.Forms.Padding(4);
-            this.txtQty_Device.MaxLength = 20;
-            this.txtQty_Device.Name = "txtQty_Device";
-            this.txtQty_Device.Size = new System.Drawing.Size(183, 24);
-            this.txtQty_Device.TabIndex = 42;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(499, 108);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(67, 18);
-            this.label5.TabIndex = 41;
-            this.label5.Text = "Số lượng";
+            this.Id_Group.DataPropertyName = "Id_Group";
+            this.Id_Group.HeaderText = "Mã Nhóm";
+            this.Id_Group.MinimumWidth = 6;
+            this.Id_Group.Name = "Id_Group";
+            this.Id_Group.Width = 125;
             // 
             // TraThietBi
             // 
@@ -408,13 +424,12 @@
             this.Controls.Add(this.dgvListRentDevice);
             this.Controls.Add(this.grpThongTinTaiKhoan);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TraThietBi";
             this.Text = "TraThietBi";
             this.Load += new System.EventHandler(this.TraThietBi_Load);
             this.grpThongTinTaiKhoan.ResumeLayout(false);
             this.grpThongTinTaiKhoan.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListRentDevice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errId_Rent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errDay_Rent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errDay_Pay)).EndInit();
@@ -422,6 +437,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errQty_Device)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errId_Customer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errStatus_Rent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListRentDevice)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -443,7 +459,6 @@
         private System.Windows.Forms.Button btnTraTB;
         private System.Windows.Forms.TextBox txtDate_Rent;
         private System.Windows.Forms.Label lblUsername;
-        private System.Windows.Forms.DataGridView dgvListRentDevice;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ErrorProvider errId_Rent;
         private System.Windows.Forms.ErrorProvider errDay_Rent;
@@ -452,14 +467,17 @@
         private System.Windows.Forms.ErrorProvider errQty_Device;
         private System.Windows.Forms.ErrorProvider errId_Customer;
         private System.Windows.Forms.ErrorProvider errStatus_Rent;
+        private System.Windows.Forms.DataGridView dgvListRentDevice;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id_Rent;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date_Rent;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date_Pay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name_Device;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status_Device;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id_Type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name_Customer;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id_Device;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Qty_Device;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Room;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id_Customer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status_Rent;
-        private System.Windows.Forms.TextBox txtQty_Device;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id_Group;
     }
 }

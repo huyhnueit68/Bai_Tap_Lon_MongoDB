@@ -42,7 +42,7 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
         {
             var client = new MongoClient("mongodb://127.0.0.1/27017"); // đường dẫn đến server
             var db = client.GetDatabase("QuanLyThietBi"); //truy cập vào database
-            var collection = db.GetCollection<Object.ObjDevice>("Device"); //truy cập collection book
+            var collection = db.GetCollection<Object.ObjDevice>("Device"); //truy cập collection
             var result = collection.AsQueryable<Object.ObjDevice>().ToList();
             dgvDSThietBi.DataSource = result; 
         }
@@ -50,16 +50,23 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
         //Hàm xử lý load dữ liệu từ dgv lên các text.
         private void HienThiThongTin()
         {
-            if (dgvDSThietBi.CurrentRow != null)
+            try
             {
-                txtId_Device.Text = dgvDSThietBi.CurrentRow.Cells["Id_Device"].Value.ToString();
-                txtName_Device.Text = dgvDSThietBi.CurrentRow.Cells["Name_Device"].Value.ToString();
-                txtPrice.Text = dgvDSThietBi.CurrentRow.Cells["Price_Device"].Value.ToString();
-                txtFunction_Device.Text = dgvDSThietBi.CurrentRow.Cells["Function_Device"].Value.ToString();
-                txtRoom.Text = dgvDSThietBi.CurrentRow.Cells["Room"].Value.ToString();
-                txtId_Type.Text = dgvDSThietBi.CurrentRow.Cells["Id_Type"].Value.ToString();
-                txtName_Type.Text = dgvDSThietBi.CurrentRow.Cells["Name_Type"].Value.ToString();
-                txtStatus.Text = dgvDSThietBi.CurrentRow.Cells["Status_Device"].Value.ToString();
+                if (dgvDSThietBi.CurrentRow != null)
+                {
+                    txtId_Device.Text = dgvDSThietBi.CurrentRow.Cells["Id_Device"].Value.ToString();
+                    txtName_Device.Text = dgvDSThietBi.CurrentRow.Cells["Name_Device"].Value.ToString();
+                    txtPrice.Text = dgvDSThietBi.CurrentRow.Cells["Price_Device"].Value.ToString();
+                    txtFunction_Device.Text = dgvDSThietBi.CurrentRow.Cells["Function_Device"].Value.ToString();
+                    txtRoom.Text = dgvDSThietBi.CurrentRow.Cells["Room"].Value.ToString();
+                    txtId_Type.Text = dgvDSThietBi.CurrentRow.Cells["Id_Type"].Value.ToString();
+                    txtName_Type.Text = dgvDSThietBi.CurrentRow.Cells["Name_Type"].Value.ToString();
+                    txtStatus.Text = dgvDSThietBi.CurrentRow.Cells["Status_Device"].Value.ToString();
+                }
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
             }
         }
 
@@ -185,7 +192,7 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
             }
             else
             {
-                string id_customer = dgvDSThietBi.CurrentRow.Cells[0].Value.ToString();
+                string id_customer = dgvDSThietBi.CurrentRow.Cells["Id_Device"].Value.ToString();
 
                 DialogResult dlg = MessageBox.Show("Bạn có chắc chắn muốn xóa dữ liệu này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -195,7 +202,7 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
                     if (deviceCtrl.Xoa(id_customer) != -9999)
                     {
                         MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        deviceCtrl.HienThi(dgvDSThietBi, id_customer);
+                        ShowDLThietBi();
                         HienThiThongTin();
                     }
                     else
@@ -269,6 +276,16 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
                 text = "Vui lòng chọn loại tìm kiếm!";
                 ThongBao(text);
             }
+        }
+
+        private void dgvDSThietBi_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void lbl_QLTaiKhoan_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

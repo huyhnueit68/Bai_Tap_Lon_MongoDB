@@ -139,14 +139,13 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
         //Hàm xử lý lưu dữ liệu.
         private void GanDuLieu(Object.ObjRentDevice rentDevice)
         {
-            rentDevice.Day_Rent = txtDate_Rent.Text.Trim();
-            rentDevice.Day_Pay = txtDate_Pay.Text.Trim();
+            rentDevice.Date_Rent = Convert.ToDateTime(txtDate_Rent.Text.Trim());
+            rentDevice.Date_Pay = Convert.ToDateTime(txtDate_Pay.Text.Trim());
 
             string value = cbbThietBi.SelectedValue.ToString();
-            rentDevice.Id_Device = value;
+            rentDevice.Id_Device = Convert.ToDouble(value);
 
-            rentDevice.Qty_Device = txtQty_Device.Text.Trim();
-            rentDevice.Id_Customer = txtId_Customer.Text.Trim();
+            rentDevice.Id_Customer = Convert.ToDouble(txtId_Customer.Text.Trim());
             rentDevice.Status_Device = "Đang sử dụng";
         }
 

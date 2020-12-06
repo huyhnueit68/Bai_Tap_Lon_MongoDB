@@ -240,5 +240,13 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị
         {
 
         }
+
+        private void btnQLNhomNguoiDung_Click(object sender, EventArgs e)
+        {
+            //form thong ke
+            resetColorForButton();
+            AbrirFormulario<QLNhomNguoiDung>();
+            btnQLNhomNguoiDung.BackColor = Color.FromArgb(0, 154, 205);
+        }
     }
 }

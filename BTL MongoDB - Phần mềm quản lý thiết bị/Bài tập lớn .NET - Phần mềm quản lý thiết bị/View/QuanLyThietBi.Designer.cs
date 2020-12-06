@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.grpThongTinTaiKhoan = new System.Windows.Forms.GroupBox();
+            this.txtId_Type = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.txtStatus = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtName_Type = new System.Windows.Forms.TextBox();
@@ -61,7 +63,6 @@
             this.errPrice = new System.Windows.Forms.ErrorProvider(this.components);
             this.errFunction_Group = new System.Windows.Forms.ErrorProvider(this.components);
             this.dgvDSThietBi = new System.Windows.Forms.DataGridView();
-            this.errStatus_Device = new System.Windows.Forms.ErrorProvider(this.components);
             this.Id_Device = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Name_Device = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price_Device = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,8 +71,7 @@
             this.Name_Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status_Device = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id_Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtId_Type = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.errStatus_Device = new System.Windows.Forms.ErrorProvider(this.components);
             this.grpThongTinTaiKhoan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errRoom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errId_Type)).BeginInit();
@@ -123,6 +123,27 @@
             this.grpThongTinTaiKhoan.TabIndex = 24;
             this.grpThongTinTaiKhoan.TabStop = false;
             this.grpThongTinTaiKhoan.Text = "Thông Tin";
+            // 
+            // txtId_Type
+            // 
+            this.txtId_Type.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtId_Type.Location = new System.Drawing.Point(512, 146);
+            this.txtId_Type.Margin = new System.Windows.Forms.Padding(4);
+            this.txtId_Type.MaxLength = 20;
+            this.txtId_Type.Name = "txtId_Type";
+            this.txtId_Type.Size = new System.Drawing.Size(184, 23);
+            this.txtId_Type.TabIndex = 39;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(376, 153);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(84, 18);
+            this.label7.TabIndex = 38;
+            this.label7.Text = "Mã Loại TB";
             // 
             // txtStatus
             // 
@@ -357,6 +378,7 @@
             this.lbl_QLTaiKhoan.Size = new System.Drawing.Size(528, 76);
             this.lbl_QLTaiKhoan.TabIndex = 23;
             this.lbl_QLTaiKhoan.Text = "Quản Lý Thiết Bị";
+            this.lbl_QLTaiKhoan.Click += new System.EventHandler(this.lbl_QLTaiKhoan_Click);
             // 
             // btnTimKiem
             // 
@@ -438,11 +460,8 @@
             this.dgvDSThietBi.RowHeadersWidth = 51;
             this.dgvDSThietBi.Size = new System.Drawing.Size(1129, 225);
             this.dgvDSThietBi.TabIndex = 27;
+            this.dgvDSThietBi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDSThietBi_CellContentClick);
             this.dgvDSThietBi.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvDSThietBi_MouseClick);
-            // 
-            // errStatus_Device
-            // 
-            this.errStatus_Device.ContainerControl = this;
             // 
             // Id_Device
             // 
@@ -509,26 +528,9 @@
             this.Id_Type.Name = "Id_Type";
             this.Id_Type.Width = 125;
             // 
-            // txtId_Type
+            // errStatus_Device
             // 
-            this.txtId_Type.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtId_Type.Location = new System.Drawing.Point(512, 146);
-            this.txtId_Type.Margin = new System.Windows.Forms.Padding(4);
-            this.txtId_Type.MaxLength = 20;
-            this.txtId_Type.Name = "txtId_Type";
-            this.txtId_Type.Size = new System.Drawing.Size(184, 23);
-            this.txtId_Type.TabIndex = 39;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(376, 153);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(84, 18);
-            this.label7.TabIndex = 38;
-            this.label7.Text = "Mã Loại TB";
+            this.errStatus_Device.ContainerControl = this;
             // 
             // QuanLyThietBi
             // 

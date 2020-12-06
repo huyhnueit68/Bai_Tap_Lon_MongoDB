@@ -19,13 +19,7 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.Object
             set { _idDevice = value; }
         }
 
-        private string _nameDevice;
-
-        public string Name_Device
-        {
-            get { return _nameDevice; }
-            set { _nameDevice = value; }
-        }
+        public string Name_Device { get; set; }
 
         private double _price;
 

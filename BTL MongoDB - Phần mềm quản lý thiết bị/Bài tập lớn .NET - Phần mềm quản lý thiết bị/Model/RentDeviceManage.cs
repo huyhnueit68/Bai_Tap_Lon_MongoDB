@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MongoDB.Driver;
+using MongoDB.Bson;
+using MongoDB.Driver.Linq;
 
 namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.Model
 {
@@ -54,36 +57,35 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.Model
 
         public int Update(Object.ObjRentDevice objRentDevice)
         {
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "UPDATE Rent_Device " +
-                "SET Date_Rent = @dayRent, Date_Pay = @dayPay, " +
-                "Id_Device = @idDevice, " +
-                "Qty_Device = @qtyDevice, " +
-                "Id_Customer = @idCustomer, " +
-                "Status_Rent = @status " +
-                "WHERE Id_Rent = @idRent; ";
-
-            cmd.Parameters.Add("dayRent", SqlDbType.DateTime).Value = objRentDevice.Day_Rent;
-            cmd.Parameters.Add("dayPay", SqlDbType.DateTime).Value = objRentDevice.Day_Pay;
-            cmd.Parameters.Add("idDevice", SqlDbType.Int).Value = objRentDevice.Id_Device;
-            cmd.Parameters.Add("qtyDevice", SqlDbType.Int).Value = objRentDevice.Qty_Device;
-            cmd.Parameters.Add("idCustomer", SqlDbType.Int).Value = objRentDevice.Id_Customer;
-            cmd.Parameters.Add("status", SqlDbType.NVarChar).Value = objRentDevice.Status_Device;
-            cmd.Parameters.Add("idRent", SqlDbType.Int).Value = objRentDevice.Id_Rent;
-
-            return cls.CapNhatDL(cmd);
+            Object.ObjRentDevice update = new Object.ObjRentDevice();
+            var client = new MongoClient("mongodb://127.0.0.1/27017"); // đường dẫn đến server
+            var db = client.GetDatabase("QuanLyThietBi"); //truy cập vào database
+            var collection = db.GetCollection<Object.ObjRentDevice>("Rent_Device"); //truy cập collection book
+            var Filter = Builders<Object.ObjRentDevice>.Filter.Eq("Id_Rent", objRentDevice.Id_Rent);
+            var arrayUpdate = Builders<Object.ObjRentDevice>.Update.
+                Set("Date_Rent", objRentDevice.Date_Rent).
+                Set("Date_Pay", objRentDevice.Date_Pay);
+            collection.UpdateOne(Filter, arrayUpdate);
+            return 1;
         }
 
         public int UpdatePay(Object.ObjRentDevice objRentDevice)
         {
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "UPDATE Rent_Device " +
-                "SET Status_Rent = N'Không sử dụng' " +
-                "WHERE Id_Rent = @idRent; ";
-
-            cmd.Parameters.Add("idRent", SqlDbType.Int).Value = objRentDevice.Id_Rent;
-            UpdateStatusDevicePay(objRentDevice);
-            return cls.CapNhatDL(cmd);
+            //update database for devices
+            var client = new MongoClient("mongodb://127.0.0.1/27017"); // đường dẫn đến server
+            var db = client.GetDatabase("QuanLyThietBi"); //truy cập vào database
+            var collection1 = db.GetCollection<Object.ObjDevice>("Device"); //truy cập collection book
+            var Filter1 = Builders<Object.ObjDevice>.Filter.Eq("Id_Device", objRentDevice.Id_Device);
+            var arrayUpdate1 = Builders<Object.ObjDevice>.Update.
+                Set("Status_Device", "Không sử dụng");
+            collection1.UpdateOne(Filter1, arrayUpdate1);
+            //update status for rent device
+            var collection = db.GetCollection<Object.ObjRentDevice>("Rent_Device"); //truy cập collection book
+            var Filter = Builders<Object.ObjRentDevice>.Filter.Eq("Id_Rent", objRentDevice.Id_Rent);
+            var arrayUpdate = Builders<Object.ObjRentDevice>.Update.
+                Set("Status_Device", "Không sử dụng");
+            collection.UpdateOne(Filter, arrayUpdate);
+            return 1;
         }
 
         public void UpdateStatusDevicePay(Object.ObjRentDevice objRentDevice)
@@ -95,13 +97,26 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.Model
         }
 
         //Hàm xử lý lấy danh sách.
-        public DataSet LayDSThietBi()
+        public DataGridView LayDSThietBi()
         {
-            string select = "SELECT * ",
-                from = "FROM Device WHERE Status_Device  = N'Không sử dụng'";
-
-            SqlCommand cmd = new SqlCommand(select + from);
-            return cls.LayDuLieu(cmd);
+            DataGridView dataGrid = new DataGridView();
+            var client = new MongoClient("mongodb://127.0.0.1/27017"); // đường dẫn đến server
+            var db = client.GetDatabase("QuanLyThietBi"); //truy cập vào database
+            var collection = db.GetCollection<Object.ObjDevice>("Device"); //truy cập collection
+            List<Object.ObjDevice> result;
+            FilterDefinition<Object.ObjDevice> query;
+            query = Builders<Object.ObjDevice>.Filter.Eq("Status_Device", "Không sử dụng");
+            try
+            {
+                result = collection.Find(query).ToList();
+                dataGrid.DataSource = result;
+                return dataGrid;
+            }
+            catch (Exception ce)
+            {
+                MessageBox.Show("Null " + ce.Message);
+                return null;
+            }
         }
 
         public int Save(Object.ObjRentDevice cdt)
@@ -110,10 +125,9 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.Model
             cmd.CommandText = "INSERT INTO Rent_Device(Date_Rent, Date_Pay, Id_Device, Qty_Device, Id_Customer, Status_Rent) " +
                 "VALUES (@dateRent, @datePay, @idDevice, @qtyDevice, @idCustomer, N'Đang sử dụng'); ";
 
-            cmd.Parameters.Add("dateRent", SqlDbType.DateTime).Value = cdt.Day_Rent;
-            cmd.Parameters.Add("datePay", SqlDbType.DateTime).Value = cdt.Day_Pay;
+            cmd.Parameters.Add("dateRent", SqlDbType.DateTime).Value = cdt.Date_Rent;
+            cmd.Parameters.Add("datePay", SqlDbType.DateTime).Value = cdt.Date_Pay;
             cmd.Parameters.Add("idDevice", SqlDbType.Int).Value = cdt.Id_Device;
-            cmd.Parameters.Add("qtyDevice", SqlDbType.Int).Value = cdt.Qty_Device;
             cmd.Parameters.Add("idCustomer", SqlDbType.Int).Value = cdt.Id_Customer;
             UpdateStatusDevice(cdt);
             return cls.CapNhatDL(cmd);

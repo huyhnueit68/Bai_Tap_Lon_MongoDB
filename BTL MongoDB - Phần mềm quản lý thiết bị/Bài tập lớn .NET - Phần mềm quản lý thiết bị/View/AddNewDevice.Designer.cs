@@ -39,13 +39,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtQty_Device = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.txtName_Device = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtStatus_Device = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.txtId_Device = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -99,7 +99,7 @@
             // 
             // txtId_Type
             // 
-            this.txtId_Type.Location = new System.Drawing.Point(758, 213);
+            this.txtId_Type.Location = new System.Drawing.Point(758, 100);
             this.txtId_Type.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtId_Type.Name = "txtId_Type";
             this.txtId_Type.Size = new System.Drawing.Size(255, 30);
@@ -109,7 +109,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(574, 213);
+            this.label6.Location = new System.Drawing.Point(574, 100);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(112, 23);
@@ -118,7 +118,7 @@
             // 
             // txtRoom
             // 
-            this.txtRoom.Location = new System.Drawing.Point(762, 137);
+            this.txtRoom.Location = new System.Drawing.Point(758, 179);
             this.txtRoom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtRoom.Name = "txtRoom";
             this.txtRoom.Size = new System.Drawing.Size(255, 30);
@@ -127,7 +127,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(578, 137);
+            this.label5.Location = new System.Drawing.Point(574, 179);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 23);
@@ -136,16 +136,16 @@
             // 
             // txtFunction_Device
             // 
-            this.txtFunction_Device.Location = new System.Drawing.Point(762, 61);
+            this.txtFunction_Device.Location = new System.Drawing.Point(255, 289);
             this.txtFunction_Device.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtFunction_Device.Name = "txtFunction_Device";
-            this.txtFunction_Device.Size = new System.Drawing.Size(255, 30);
+            this.txtFunction_Device.Size = new System.Drawing.Size(265, 30);
             this.txtFunction_Device.TabIndex = 37;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(578, 61);
+            this.label4.Location = new System.Drawing.Point(71, 289);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(108, 23);
@@ -154,7 +154,7 @@
             // 
             // txtPrice
             // 
-            this.txtPrice.Location = new System.Drawing.Point(255, 258);
+            this.txtPrice.Location = new System.Drawing.Point(255, 213);
             this.txtPrice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(265, 30);
@@ -164,35 +164,16 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(71, 258);
+            this.label2.Location = new System.Drawing.Point(71, 213);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(86, 23);
             this.label2.TabIndex = 34;
             this.label2.Text = "Đơn Gía";
             // 
-            // txtQty_Device
-            // 
-            this.txtQty_Device.Location = new System.Drawing.Point(255, 178);
-            this.txtQty_Device.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtQty_Device.Name = "txtQty_Device";
-            this.txtQty_Device.Size = new System.Drawing.Size(265, 30);
-            this.txtQty_Device.TabIndex = 33;
-            this.txtQty_Device.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQty_Device_KeyPress);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(71, 178);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 23);
-            this.label1.TabIndex = 32;
-            this.label1.Text = "Số Lượng";
-            // 
             // txtName_Device
             // 
-            this.txtName_Device.Location = new System.Drawing.Point(255, 99);
+            this.txtName_Device.Location = new System.Drawing.Point(255, 137);
             this.txtName_Device.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtName_Device.Name = "txtName_Device";
             this.txtName_Device.Size = new System.Drawing.Size(265, 30);
@@ -202,6 +183,8 @@
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.txtId_Device);
+            this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.txtStatus_Device);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.btnLamMoi);
@@ -215,8 +198,6 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.txtPrice);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.txtQty_Device);
-            this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.txtName_Device);
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -232,7 +213,7 @@
             // 
             // txtStatus_Device
             // 
-            this.txtStatus_Device.Location = new System.Drawing.Point(758, 296);
+            this.txtStatus_Device.Location = new System.Drawing.Point(758, 265);
             this.txtStatus_Device.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtStatus_Device.Name = "txtStatus_Device";
             this.txtStatus_Device.Size = new System.Drawing.Size(255, 30);
@@ -241,7 +222,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(574, 296);
+            this.label7.Location = new System.Drawing.Point(574, 265);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(103, 23);
@@ -251,12 +232,30 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(71, 99);
+            this.label15.Location = new System.Drawing.Point(71, 137);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(115, 23);
             this.label15.TabIndex = 1;
             this.label15.Text = "Tên Thiết Bị";
+            // 
+            // txtId_Device
+            // 
+            this.txtId_Device.Location = new System.Drawing.Point(255, 61);
+            this.txtId_Device.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtId_Device.Name = "txtId_Device";
+            this.txtId_Device.Size = new System.Drawing.Size(265, 30);
+            this.txtId_Device.TabIndex = 47;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(71, 61);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(110, 23);
+            this.label3.TabIndex = 46;
+            this.label3.Text = "Mã Thiết Bị";
             // 
             // AddNewDevice
             // 
@@ -287,12 +286,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtQty_Device;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtName_Device;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtStatus_Device;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtId_Device;
+        private System.Windows.Forms.Label label3;
     }
 }

@@ -191,6 +191,12 @@
     <Compile Include="View\QLMuonTra.Designer.cs">
       <DependentUpon>QLMuonTra.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\QLNhomNguoiDung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\QLNhomNguoiDung.Designer.cs">
+      <DependentUpon>QLNhomNguoiDung.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\QLThanhLyTB.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -257,6 +263,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\QLMuonTra.resx">
       <DependentUpon>QLMuonTra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\QLNhomNguoiDung.resx">
+      <DependentUpon>QLNhomNguoiDung.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\QLThanhLyTB.resx">
       <DependentUpon>QLThanhLyTB.cs</DependentUpon>

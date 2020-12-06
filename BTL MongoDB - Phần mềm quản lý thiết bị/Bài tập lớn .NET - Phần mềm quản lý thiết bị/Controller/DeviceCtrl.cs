@@ -6,6 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MongoDB.Driver;
+using MongoDB.Bson;
+using MongoDB.Driver.Linq;
 
 namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.Controller
 {
@@ -31,6 +34,8 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.Controller
 
         public int Them(Object.ObjDevice objDevice)
         {
+            if (!KiemTraMaTB(Convert.ToInt32(objDevice.Id_Device)))
+                return 0;
             if (!KiemTraMaLoai(Convert.ToInt32(objDevice.Id_Type)))
                 return 2;
             return deviceMng.Save(objDevice);
@@ -40,45 +45,56 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.Controller
         {
             try
             {
-                SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = "SELECT * FROM Device WHERE Id_Device = @id";
-                cmd.Parameters.Add("id", SqlDbType.Int).Value = id;
-                if (helperData.LayDuLieu(cmd).Tables[0].Rows.Count > 0)
-                    return false;
-                else
+                var client = new MongoClient("mongodb://127.0.0.1/27017"); // đường dẫn đến server
+                var db = client.GetDatabase("QuanLyThietBi"); //truy cập vào database
+                var collection = db.GetCollection<Object.ObjDevice>("Device"); //truy cập collection
+                var query = Builders<Object.ObjDevice>.Filter.Eq("Id_Device", id);
+                var result = collection.Find(query).ToList();
+                if(result.Count == 0)
+                {
                     return true;
+                }
+                else
+                {
+                    return false;
+                }    
             }
-            catch (Exception e)
+            catch (Exception ce)
             {
-                MessageBox.Show("Mã thiết bị: " + e.Message);
+                MessageBox.Show(ce.Message);
                 return false;
             }
-
         }
 
         public bool KiemTraMaLoai(int id)
         {
             try
             {
-                SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = "SELECT * FROM Type_Device WHERE Id_Type = @id";
-                cmd.Parameters.Add("id", SqlDbType.Int).Value = id;
-                if (helperData.LayDuLieu(cmd).Tables[0].Rows.Count <= 0)
-                    return false;
-                else
+                var client = new MongoClient("mongodb://127.0.0.1/27017"); // đường dẫn đến server
+                var db = client.GetDatabase("QuanLyThietBi"); //truy cập vào database
+                var collection = db.GetCollection<Object.ObjTypeDevice>("Type_Device"); //truy cập collection
+                var query = Builders<Object.ObjTypeDevice>.Filter.Eq("Id_Type", id);
+                var result = collection.Find(query).ToList();
+                if (result.Count > 0)
+                {
                     return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            catch (Exception e)
+            catch (Exception ce)
             {
-                MessageBox.Show("Mã loại thiết bị: " + e.Message);
+                MessageBox.Show(ce.Message);
                 return false;
             }
-
         }
 
         public void HienThiNguoiDung(DataGridView dgv, string tukhoa, string tieuchi)
         {
-            dgv.DataSource = deviceMng.getListDevice(tukhoa, tieuchi).Tables[0];
+            dgv.DataSource = deviceMng.getListDevice(tukhoa, tieuchi).DataSource;
+
         }
     }
 }

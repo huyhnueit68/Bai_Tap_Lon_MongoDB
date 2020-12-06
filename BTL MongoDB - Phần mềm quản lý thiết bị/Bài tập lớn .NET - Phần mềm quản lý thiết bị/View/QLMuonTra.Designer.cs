@@ -33,13 +33,6 @@
             this.txtId_Rent = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvListRentDevice = new System.Windows.Forms.DataGridView();
-            this.Id_Rent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date_Rent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date_Pay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Id_Device = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Qty_Device = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Id_Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status_Rent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.errId_Rent = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnCapNhat = new System.Windows.Forms.Button();
             this.grp_TimKiem = new System.Windows.Forms.GroupBox();
@@ -54,8 +47,6 @@
             this.lbl_QLTaiKhoan = new System.Windows.Forms.Label();
             this.errDay_Rent = new System.Windows.Forms.ErrorProvider(this.components);
             this.grpThongTinTaiKhoan = new System.Windows.Forms.GroupBox();
-            this.txtQty_Device = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.mntNgayTra = new System.Windows.Forms.MonthCalendar();
             this.mntNgayMuon = new System.Windows.Forms.MonthCalendar();
             this.btnNgayTra = new System.Windows.Forms.Button();
@@ -74,6 +65,17 @@
             this.errQty_Device = new System.Windows.Forms.ErrorProvider(this.components);
             this.errId_Customer = new System.Windows.Forms.ErrorProvider(this.components);
             this.errStatus_Rent = new System.Windows.Forms.ErrorProvider(this.components);
+            this.Id_Rent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date_Rent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date_Pay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name_Device = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status_Device = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id_Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name_Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id_Device = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Room = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id_Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id_Group = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListRentDevice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errId_Rent)).BeginInit();
             this.grp_TimKiem.SuspendLayout();
@@ -92,7 +94,7 @@
             this.btnLamMoi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLamMoi.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnLamMoi.Location = new System.Drawing.Point(769, 47);
-            this.btnLamMoi.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLamMoi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLamMoi.Name = "btnLamMoi";
             this.btnLamMoi.Size = new System.Drawing.Size(169, 46);
             this.btnLamMoi.TabIndex = 25;
@@ -103,7 +105,7 @@
             // txtId_Rent
             // 
             this.txtId_Rent.Location = new System.Drawing.Point(152, 50);
-            this.txtId_Rent.Margin = new System.Windows.Forms.Padding(4);
+            this.txtId_Rent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtId_Rent.MaxLength = 20;
             this.txtId_Rent.Name = "txtId_Rent";
             this.txtId_Rent.Size = new System.Drawing.Size(173, 24);
@@ -128,74 +130,21 @@
             this.Id_Rent,
             this.Date_Rent,
             this.Date_Pay,
+            this.Name_Device,
+            this.Status_Device,
+            this.Id_Type,
+            this.Name_Customer,
             this.Id_Device,
-            this.Qty_Device,
+            this.Room,
             this.Id_Customer,
-            this.Status_Rent});
+            this.Id_Group});
             this.dgvListRentDevice.Location = new System.Drawing.Point(112, 380);
-            this.dgvListRentDevice.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvListRentDevice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvListRentDevice.Name = "dgvListRentDevice";
             this.dgvListRentDevice.RowHeadersWidth = 51;
             this.dgvListRentDevice.Size = new System.Drawing.Size(1052, 193);
             this.dgvListRentDevice.TabIndex = 25;
             this.dgvListRentDevice.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvListRentDevice_MouseClick);
-            // 
-            // Id_Rent
-            // 
-            this.Id_Rent.DataPropertyName = "Id_Rent";
-            this.Id_Rent.HeaderText = "Mã Mượn";
-            this.Id_Rent.MinimumWidth = 6;
-            this.Id_Rent.Name = "Id_Rent";
-            this.Id_Rent.Width = 125;
-            // 
-            // Date_Rent
-            // 
-            this.Date_Rent.DataPropertyName = "Date_Rent";
-            this.Date_Rent.HeaderText = "Ngày Mượn";
-            this.Date_Rent.MinimumWidth = 6;
-            this.Date_Rent.Name = "Date_Rent";
-            this.Date_Rent.ReadOnly = true;
-            this.Date_Rent.Width = 150;
-            // 
-            // Date_Pay
-            // 
-            this.Date_Pay.DataPropertyName = "Date_Pay";
-            this.Date_Pay.HeaderText = "Ngày Trả";
-            this.Date_Pay.MinimumWidth = 6;
-            this.Date_Pay.Name = "Date_Pay";
-            this.Date_Pay.Width = 150;
-            // 
-            // Id_Device
-            // 
-            this.Id_Device.DataPropertyName = "Id_Device";
-            this.Id_Device.HeaderText = "Mã Thiết Bị";
-            this.Id_Device.MinimumWidth = 6;
-            this.Id_Device.Name = "Id_Device";
-            this.Id_Device.Width = 125;
-            // 
-            // Qty_Device
-            // 
-            this.Qty_Device.DataPropertyName = "Qty_Device";
-            this.Qty_Device.HeaderText = "Số Lượng";
-            this.Qty_Device.MinimumWidth = 6;
-            this.Qty_Device.Name = "Qty_Device";
-            this.Qty_Device.Width = 125;
-            // 
-            // Id_Customer
-            // 
-            this.Id_Customer.DataPropertyName = "Id_Customer";
-            this.Id_Customer.HeaderText = "Mã khách hàng";
-            this.Id_Customer.MinimumWidth = 6;
-            this.Id_Customer.Name = "Id_Customer";
-            this.Id_Customer.Width = 110;
-            // 
-            // Status_Rent
-            // 
-            this.Status_Rent.DataPropertyName = "Status_Rent";
-            this.Status_Rent.HeaderText = "Trang Thái";
-            this.Status_Rent.MinimumWidth = 6;
-            this.Status_Rent.Name = "Status_Rent";
-            this.Status_Rent.Width = 125;
             // 
             // errId_Rent
             // 
@@ -207,7 +156,7 @@
             this.btnCapNhat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCapNhat.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnCapNhat.Location = new System.Drawing.Point(976, 47);
-            this.btnCapNhat.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCapNhat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(171, 46);
             this.btnCapNhat.TabIndex = 20;
@@ -224,9 +173,9 @@
             this.grp_TimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grp_TimKiem.ForeColor = System.Drawing.Color.Black;
             this.grp_TimKiem.Location = new System.Drawing.Point(37, 581);
-            this.grp_TimKiem.Margin = new System.Windows.Forms.Padding(4);
+            this.grp_TimKiem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.grp_TimKiem.Name = "grp_TimKiem";
-            this.grp_TimKiem.Padding = new System.Windows.Forms.Padding(4);
+            this.grp_TimKiem.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.grp_TimKiem.Size = new System.Drawing.Size(1187, 85);
             this.grp_TimKiem.TabIndex = 26;
             this.grp_TimKiem.TabStop = false;
@@ -238,7 +187,7 @@
             this.rdbId_Device.AutoSize = true;
             this.rdbId_Device.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbId_Device.Location = new System.Drawing.Point(720, 36);
-            this.rdbId_Device.Margin = new System.Windows.Forms.Padding(4);
+            this.rdbId_Device.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rdbId_Device.Name = "rdbId_Device";
             this.rdbId_Device.Size = new System.Drawing.Size(103, 22);
             this.rdbId_Device.TabIndex = 5;
@@ -251,7 +200,7 @@
             this.rdbId_Rent.AutoSize = true;
             this.rdbId_Rent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbId_Rent.Location = new System.Drawing.Point(512, 37);
-            this.rdbId_Rent.Margin = new System.Windows.Forms.Padding(4);
+            this.rdbId_Rent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rdbId_Rent.Name = "rdbId_Rent";
             this.rdbId_Rent.Size = new System.Drawing.Size(92, 22);
             this.rdbId_Rent.TabIndex = 4;
@@ -266,7 +215,7 @@
             this.btnTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTimKiem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnTimKiem.Location = new System.Drawing.Point(992, 22);
-            this.btnTimKiem.Margin = new System.Windows.Forms.Padding(4);
+            this.btnTimKiem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(135, 46);
             this.btnTimKiem.TabIndex = 3;
@@ -277,7 +226,7 @@
             // txtTimKiem
             // 
             this.txtTimKiem.Location = new System.Drawing.Point(11, 34);
-            this.txtTimKiem.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTimKiem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtTimKiem.Name = "txtTimKiem";
             this.txtTimKiem.Size = new System.Drawing.Size(333, 26);
             this.txtTimKiem.TabIndex = 0;
@@ -288,7 +237,7 @@
             this.btnTraTB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTraTB.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnTraTB.Location = new System.Drawing.Point(769, 159);
-            this.btnTraTB.Margin = new System.Windows.Forms.Padding(4);
+            this.btnTraTB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnTraTB.Name = "btnTraTB";
             this.btnTraTB.Size = new System.Drawing.Size(169, 46);
             this.btnTraTB.TabIndex = 21;
@@ -302,7 +251,7 @@
             this.btnMuonTB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMuonTB.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnMuonTB.Location = new System.Drawing.Point(976, 159);
-            this.btnMuonTB.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMuonTB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMuonTB.Name = "btnMuonTB";
             this.btnMuonTB.Size = new System.Drawing.Size(169, 46);
             this.btnMuonTB.TabIndex = 19;
@@ -313,7 +262,7 @@
             // txtDate_Rent
             // 
             this.txtDate_Rent.Location = new System.Drawing.Point(152, 101);
-            this.txtDate_Rent.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDate_Rent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDate_Rent.MaxLength = 20;
             this.txtDate_Rent.Name = "txtDate_Rent";
             this.txtDate_Rent.Size = new System.Drawing.Size(129, 24);
@@ -351,8 +300,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpThongTinTaiKhoan.BackColor = System.Drawing.Color.Transparent;
-            this.grpThongTinTaiKhoan.Controls.Add(this.txtQty_Device);
-            this.grpThongTinTaiKhoan.Controls.Add(this.label5);
             this.grpThongTinTaiKhoan.Controls.Add(this.mntNgayTra);
             this.grpThongTinTaiKhoan.Controls.Add(this.mntNgayMuon);
             this.grpThongTinTaiKhoan.Controls.Add(this.btnNgayTra);
@@ -379,49 +326,29 @@
             this.grpThongTinTaiKhoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpThongTinTaiKhoan.ForeColor = System.Drawing.Color.Black;
             this.grpThongTinTaiKhoan.Location = new System.Drawing.Point(37, 114);
-            this.grpThongTinTaiKhoan.Margin = new System.Windows.Forms.Padding(4);
+            this.grpThongTinTaiKhoan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.grpThongTinTaiKhoan.Name = "grpThongTinTaiKhoan";
-            this.grpThongTinTaiKhoan.Padding = new System.Windows.Forms.Padding(4);
+            this.grpThongTinTaiKhoan.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.grpThongTinTaiKhoan.Size = new System.Drawing.Size(1203, 325);
             this.grpThongTinTaiKhoan.TabIndex = 24;
             this.grpThongTinTaiKhoan.TabStop = false;
             this.grpThongTinTaiKhoan.Text = "Thông Tin";
             this.grpThongTinTaiKhoan.Enter += new System.EventHandler(this.grpThongTinTaiKhoan_Enter);
             // 
-            // txtQty_Device
-            // 
-            this.txtQty_Device.Location = new System.Drawing.Point(513, 108);
-            this.txtQty_Device.Margin = new System.Windows.Forms.Padding(4);
-            this.txtQty_Device.MaxLength = 20;
-            this.txtQty_Device.Name = "txtQty_Device";
-            this.txtQty_Device.Size = new System.Drawing.Size(183, 24);
-            this.txtQty_Device.TabIndex = 45;
-            this.txtQty_Device.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQty_Device_KeyPress);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(376, 112);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(72, 18);
-            this.label5.TabIndex = 44;
-            this.label5.Text = "Số Lượng";
-            // 
             // mntNgayTra
             // 
-            this.mntNgayTra.Location = new System.Drawing.Point(29, 57);
+            this.mntNgayTra.Location = new System.Drawing.Point(63, 32);
             this.mntNgayTra.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
             this.mntNgayTra.MaxSelectionCount = 1;
             this.mntNgayTra.Name = "mntNgayTra";
             this.mntNgayTra.TabIndex = 43;
             this.mntNgayTra.Visible = false;
+            this.mntNgayTra.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.mntNgayTra_DateChanged);
             this.mntNgayTra.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.mntNgayTra_DateSelected);
             // 
             // mntNgayMuon
             // 
-            this.mntNgayMuon.Location = new System.Drawing.Point(29, 47);
+            this.mntNgayMuon.Location = new System.Drawing.Point(63, 17);
             this.mntNgayMuon.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
             this.mntNgayMuon.MaxSelectionCount = 1;
             this.mntNgayMuon.Name = "mntNgayMuon";
@@ -432,7 +359,7 @@
             // btnNgayTra
             // 
             this.btnNgayTra.Location = new System.Drawing.Point(291, 156);
-            this.btnNgayTra.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNgayTra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnNgayTra.Name = "btnNgayTra";
             this.btnNgayTra.Size = new System.Drawing.Size(36, 28);
             this.btnNgayTra.TabIndex = 41;
@@ -443,7 +370,7 @@
             // btnNgayMuon
             // 
             this.btnNgayMuon.Location = new System.Drawing.Point(291, 101);
-            this.btnNgayMuon.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNgayMuon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnNgayMuon.Name = "btnNgayMuon";
             this.btnNgayMuon.Size = new System.Drawing.Size(36, 28);
             this.btnNgayMuon.TabIndex = 40;
@@ -455,8 +382,8 @@
             // 
             this.rdbTra.AutoSize = true;
             this.rdbTra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbTra.Location = new System.Drawing.Point(639, 217);
-            this.rdbTra.Margin = new System.Windows.Forms.Padding(4);
+            this.rdbTra.Location = new System.Drawing.Point(639, 202);
+            this.rdbTra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rdbTra.Name = "rdbTra";
             this.rdbTra.Size = new System.Drawing.Size(51, 22);
             this.rdbTra.TabIndex = 39;
@@ -468,8 +395,8 @@
             // 
             this.rdbMuon.AutoSize = true;
             this.rdbMuon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbMuon.Location = new System.Drawing.Point(512, 217);
-            this.rdbMuon.Margin = new System.Windows.Forms.Padding(4);
+            this.rdbMuon.Location = new System.Drawing.Point(512, 202);
+            this.rdbMuon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rdbMuon.Name = "rdbMuon";
             this.rdbMuon.Size = new System.Drawing.Size(67, 22);
             this.rdbMuon.TabIndex = 38;
@@ -479,8 +406,8 @@
             // 
             // txtId_Device
             // 
-            this.txtId_Device.Location = new System.Drawing.Point(513, 53);
-            this.txtId_Device.Margin = new System.Windows.Forms.Padding(4);
+            this.txtId_Device.Location = new System.Drawing.Point(512, 66);
+            this.txtId_Device.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtId_Device.MaxLength = 20;
             this.txtId_Device.Name = "txtId_Device";
             this.txtId_Device.Size = new System.Drawing.Size(183, 24);
@@ -490,7 +417,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(376, 57);
+            this.label6.Location = new System.Drawing.Point(375, 70);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(82, 18);
@@ -501,7 +428,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(375, 217);
+            this.label4.Location = new System.Drawing.Point(375, 202);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(78, 18);
@@ -510,8 +437,8 @@
             // 
             // txtId_Customer
             // 
-            this.txtId_Customer.Location = new System.Drawing.Point(512, 156);
-            this.txtId_Customer.Margin = new System.Windows.Forms.Padding(4);
+            this.txtId_Customer.Location = new System.Drawing.Point(512, 128);
+            this.txtId_Customer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtId_Customer.MaxLength = 20;
             this.txtId_Customer.Name = "txtId_Customer";
             this.txtId_Customer.Size = new System.Drawing.Size(183, 24);
@@ -521,7 +448,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(375, 162);
+            this.label3.Location = new System.Drawing.Point(375, 134);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(114, 18);
@@ -531,7 +458,7 @@
             // txtDate_Pay
             // 
             this.txtDate_Pay.Location = new System.Drawing.Point(152, 158);
-            this.txtDate_Pay.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDate_Pay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDate_Pay.MaxLength = 20;
             this.txtDate_Pay.Name = "txtDate_Pay";
             this.txtDate_Pay.Size = new System.Drawing.Size(129, 24);
@@ -568,6 +495,95 @@
             // 
             this.errStatus_Rent.ContainerControl = this;
             // 
+            // Id_Rent
+            // 
+            this.Id_Rent.DataPropertyName = "Id_Rent";
+            this.Id_Rent.HeaderText = "Mã Mượn";
+            this.Id_Rent.MinimumWidth = 6;
+            this.Id_Rent.Name = "Id_Rent";
+            this.Id_Rent.Width = 125;
+            // 
+            // Date_Rent
+            // 
+            this.Date_Rent.DataPropertyName = "Date_Rent";
+            this.Date_Rent.HeaderText = "Ngày Mượn";
+            this.Date_Rent.MinimumWidth = 6;
+            this.Date_Rent.Name = "Date_Rent";
+            this.Date_Rent.ReadOnly = true;
+            this.Date_Rent.Width = 125;
+            // 
+            // Date_Pay
+            // 
+            this.Date_Pay.DataPropertyName = "Date_Pay";
+            this.Date_Pay.HeaderText = "Ngày Trả";
+            this.Date_Pay.MinimumWidth = 6;
+            this.Date_Pay.Name = "Date_Pay";
+            this.Date_Pay.Width = 125;
+            // 
+            // Name_Device
+            // 
+            this.Name_Device.DataPropertyName = "Name_Device";
+            this.Name_Device.HeaderText = "Tên Thiết Bị";
+            this.Name_Device.MinimumWidth = 6;
+            this.Name_Device.Name = "Name_Device";
+            this.Name_Device.Width = 125;
+            // 
+            // Status_Device
+            // 
+            this.Status_Device.DataPropertyName = "Status_Device";
+            this.Status_Device.HeaderText = "Trang Thái";
+            this.Status_Device.MinimumWidth = 6;
+            this.Status_Device.Name = "Status_Device";
+            this.Status_Device.Width = 125;
+            // 
+            // Id_Type
+            // 
+            this.Id_Type.DataPropertyName = "Id_Type";
+            this.Id_Type.HeaderText = "Mã Loại TB";
+            this.Id_Type.MinimumWidth = 6;
+            this.Id_Type.Name = "Id_Type";
+            this.Id_Type.Width = 125;
+            // 
+            // Name_Customer
+            // 
+            this.Name_Customer.DataPropertyName = "Name_Customer";
+            this.Name_Customer.HeaderText = "Tên Khách Hàng";
+            this.Name_Customer.MinimumWidth = 6;
+            this.Name_Customer.Name = "Name_Customer";
+            this.Name_Customer.Width = 125;
+            // 
+            // Id_Device
+            // 
+            this.Id_Device.DataPropertyName = "Id_Device";
+            this.Id_Device.HeaderText = "Mã Thiết Bị";
+            this.Id_Device.MinimumWidth = 6;
+            this.Id_Device.Name = "Id_Device";
+            this.Id_Device.Width = 125;
+            // 
+            // Room
+            // 
+            this.Room.DataPropertyName = "Room";
+            this.Room.HeaderText = "Phòng";
+            this.Room.MinimumWidth = 6;
+            this.Room.Name = "Room";
+            this.Room.Width = 125;
+            // 
+            // Id_Customer
+            // 
+            this.Id_Customer.DataPropertyName = "Id_Customer";
+            this.Id_Customer.HeaderText = "Mã khách hàng";
+            this.Id_Customer.MinimumWidth = 6;
+            this.Id_Customer.Name = "Id_Customer";
+            this.Id_Customer.Width = 125;
+            // 
+            // Id_Group
+            // 
+            this.Id_Group.DataPropertyName = "Id_Group";
+            this.Id_Group.HeaderText = "Mã Nhóm";
+            this.Id_Group.MinimumWidth = 6;
+            this.Id_Group.Name = "Id_Group";
+            this.Id_Group.Width = 125;
+            // 
             // QLMuonTra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -578,7 +594,7 @@
             this.Controls.Add(this.lbl_QLTaiKhoan);
             this.Controls.Add(this.grpThongTinTaiKhoan);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "QLMuonTra";
             this.Text = "QLMuonTra";
             this.Load += new System.EventHandler(this.QLMuonTra_Load);
@@ -640,11 +656,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Id_Rent;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date_Rent;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date_Pay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name_Device;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status_Device;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id_Type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name_Customer;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id_Device;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Qty_Device;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Room;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id_Customer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status_Rent;
-        private System.Windows.Forms.TextBox txtQty_Device;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id_Group;
     }
 }

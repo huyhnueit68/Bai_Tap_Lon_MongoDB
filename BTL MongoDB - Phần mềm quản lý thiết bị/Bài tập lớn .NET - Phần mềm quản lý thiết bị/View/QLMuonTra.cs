@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MongoDB.Driver;
+using MongoDB.Bson;
+using MongoDB.Driver.Linq;
 
 namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
 {
@@ -24,12 +27,38 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
         {
             if (Login.resultLogin != 1)
             {
-                
+                ShowDLThueTBKhacHang();
             }
-            rentDeviceManage.HienThi(dgvListRentDevice);
+            else
+            {
+                ShowDLThueTB();
+            }
             HienThiThongTin();
             txtDate_Pay.Enabled = false;
             txtDate_Rent.Enabled = false;
+            txtId_Device.Enabled = false;
+            txtId_Customer.Enabled = false;
+            txtId_Rent.Enabled = false;
+        }
+
+
+        private void ShowDLThueTBKhacHang()
+        {
+            var client = new MongoClient("mongodb://127.0.0.1/27017"); // đường dẫn đến server
+            var db = client.GetDatabase("QuanLyThietBi"); //truy cập vào database
+            var collection = db.GetCollection<Object.ObjRentDevice>("Rent_Device"); //truy cập collection
+            var query = Builders<Object.ObjRentDevice>.Filter.Eq("Id_Customer", Login.getIdCustomerLogin());
+            var result = collection.Find(query).ToList();
+            dgvListRentDevice.DataSource = result;
+        }
+
+        private void ShowDLThueTB()
+        {
+            var client = new MongoClient("mongodb://127.0.0.1/27017"); // đường dẫn đến server
+            var db = client.GetDatabase("QuanLyThietBi"); //truy cập vào database
+            var collection = db.GetCollection<Object.ObjRentDevice>("Rent_Device"); //truy cập collection book
+            var result = collection.AsQueryable<Object.ObjRentDevice>().ToList();
+            dgvListRentDevice.DataSource = result;
         }
 
         //Hàm xử lý load dữ liệu từ dgv lên các text.
@@ -41,9 +70,8 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
                 txtDate_Rent.Text = dgvListRentDevice.CurrentRow.Cells["Date_Rent"].Value.ToString();
                 txtDate_Pay.Text = dgvListRentDevice.CurrentRow.Cells["Date_Pay"].Value.ToString();
                 txtId_Device.Text = dgvListRentDevice.CurrentRow.Cells["Id_Device"].Value.ToString();
-                txtQty_Device.Text = dgvListRentDevice.CurrentRow.Cells["Qty_Device"].Value.ToString();
                 txtId_Customer.Text = dgvListRentDevice.CurrentRow.Cells["Id_Customer"].Value.ToString();
-                string tg = dgvListRentDevice.CurrentRow.Cells["Status_Rent"].Value.ToString();
+                string tg = dgvListRentDevice.CurrentRow.Cells["Status_Device"].Value.ToString();
                 if(tg == "Đang sử dụng")
                 {
                     rdbMuon.Checked = true;
@@ -104,12 +132,11 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
 
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
-            rentDeviceManage.HienThi(dgvListRentDevice);
+            ShowDLThueTB();
             txtId_Rent.Clear();
             txtDate_Rent.Clear();
             txtDate_Pay.Clear();
             txtId_Device.Clear();
-            txtQty_Device.Clear();
             txtId_Customer.Clear();
             rdbMuon.Checked = false;
             rdbTra.Checked = false;
@@ -117,12 +144,11 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
 
         private void SetDataRentDetail(Object.ObjRentDevice objRentDevice)
         {
-            objRentDevice.Id_Rent = txtId_Rent.Text;
-            objRentDevice.Day_Rent = txtDate_Rent.Text;
-            objRentDevice.Day_Pay = txtDate_Pay.Text;
-            objRentDevice.Id_Device = txtId_Device.Text;
-            objRentDevice.Qty_Device = txtQty_Device.Text;
-            objRentDevice.Id_Customer = txtId_Customer.Text;
+            objRentDevice.Id_Rent = Convert.ToDouble(txtId_Rent.Text);
+            objRentDevice.Date_Rent = Convert.ToDateTime(txtDate_Rent.Text);
+            objRentDevice.Date_Pay = Convert.ToDateTime(txtDate_Pay.Text);
+            objRentDevice.Id_Device = Convert.ToDouble(txtId_Device.Text);
+            objRentDevice.Id_Customer = Convert.ToDouble(txtId_Customer.Text);
             if(rdbMuon.Checked == true)
             {
                 objRentDevice.Status_Device = "Đang sử dụng";
@@ -144,14 +170,13 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
                 Object.ObjRentDevice objRentDevice = new Object.ObjRentDevice();
                 SetDataRentDetail(objRentDevice);
 
-                string Id_Customer = dgvListRentDevice.CurrentRow.Cells[0].Value.ToString();
                 DialogResult dlg = MessageBox.Show("Bạn có chắc chắn muốn đổi dữ liệu này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dlg == DialogResult.Yes)
                 {
                     if (rentDeviceCtrl.Update(objRentDevice) > 0)
                     {
                         MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        rentDeviceManage.HienThi(dgvListRentDevice);
+                        ShowDLThueTB();
                         HienThiThongTin();
                     }
                     else
@@ -164,7 +189,7 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
 
         private void SetDataCustomerDetail(Object.ObjRentDevice objRentDevice)
         {
-            objRentDevice.Id_Customer = txtId_Customer.Text;
+            objRentDevice.Id_Customer = Convert.ToDouble(txtId_Customer.Text);
         }
 
         private bool checkNullTextBox()
@@ -273,6 +298,11 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
         private void ThongBao(string text)
         {
             MessageBox.Show(text, "thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void mntNgayTra_DateChanged(object sender, DateRangeEventArgs e)
+        {
+
         }
     }
 }

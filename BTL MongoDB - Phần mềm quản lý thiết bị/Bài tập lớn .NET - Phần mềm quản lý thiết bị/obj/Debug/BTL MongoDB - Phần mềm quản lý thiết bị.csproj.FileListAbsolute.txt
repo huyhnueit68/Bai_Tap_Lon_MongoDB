@@ -39,3 +39,4 @@ C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần m�
 C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\bin\Debug\MongoDB.Driver.xml
 C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\bin\Debug\MongoDB.Driver.Core.xml
 C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\bin\Debug\System.Buffers.xml
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\obj\Debug\Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View.QLNhomNguoiDung.resources

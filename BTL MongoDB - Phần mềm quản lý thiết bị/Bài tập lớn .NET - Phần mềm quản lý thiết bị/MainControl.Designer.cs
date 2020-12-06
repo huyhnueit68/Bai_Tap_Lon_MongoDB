@@ -368,6 +368,7 @@
             this.btnQLNhomNguoiDung.Text = " Nhóm Người Dùng";
             this.btnQLNhomNguoiDung.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnQLNhomNguoiDung.UseVisualStyleBackColor = true;
+            this.btnQLNhomNguoiDung.Click += new System.EventHandler(this.btnQLNhomNguoiDung_Click);
             this.btnQLNhomNguoiDung.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnQLNhomNguoiDung_MouseClick);
             // 
             // btnQLThanhLy

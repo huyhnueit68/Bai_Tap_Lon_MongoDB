@@ -31,10 +31,27 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.Model
 
         public int Xoa(string id)
         {
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "DELETE FROM Device WHERE Id_Device = @id";
-            cmd.Parameters.Add("id", SqlDbType.Int).Value = Convert.ToInt32(id);
-            return cls.CapNhatDL(cmd);
+            //check status
+            Object.ObjDevice objDevice = new Object.ObjDevice();
+            var client1 = new MongoClient("mongodb://127.0.0.1/27017"); // đường dẫn đến server
+            var db1 = client1.GetDatabase("QuanLyThietBi"); //truy cập vào database
+            var collection1 = db1.GetCollection<Object.ObjDevice>("Device"); //truy cập collection
+            var query1 = Builders<Object.ObjDevice>.Filter.Eq("Id_Device", id);
+            var result1 = collection1.Find(query1).ToList();
+            objDevice = result1[0];
+            if(objDevice.Status_Device == "Đang sử dụng")
+            {
+                return 0;
+            }
+
+            Object.ObjDevice update = new Object.ObjDevice();
+            var client = new MongoClient("mongodb://127.0.0.1/27017"); // đường dẫn đến server
+            var db = client.GetDatabase("QuanLyThietBi"); //truy cập vào database
+            var collection = db.GetCollection<Object.ObjDevice>("Device"); //truy cập collection
+            var Filter = Builders<Object.ObjDevice>.Filter.Eq("Id_Device", id);
+            collection.DeleteMany(Filter);
+            MessageBox.Show("Xóa thành công", "Thông báo");
+            return 1;
         }
 
         public int Update(Object.ObjDevice objDevice)
@@ -49,23 +66,21 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.Model
                 var query1 = Builders<Object.ObjTypeDevice>.Filter.Eq("Id_Type", objDevice.Id_Type);
                 var result1 = collection1.Find(query1).ToList();
                 typeDevice = result1[0];
-                MessageBox.Show(typeDevice.ToString());
                 if(typeDevice != null)
                 {
                     //update database for devices
-                    Object.ObjDevice update = new Object.ObjDevice();
                     var client = new MongoClient("mongodb://127.0.0.1/27017"); // đường dẫn đến server
                     var db = client.GetDatabase("QuanLyThietBi"); //truy cập vào database
                     var collection = db.GetCollection<Object.ObjDevice>("Device"); //truy cập collection book
-                    var Filter = Builders<Object.ObjDevice>.Filter.Eq("Id_Device", update.Id_Device);
+                    var Filter = Builders<Object.ObjDevice>.Filter.Eq("Id_Device", objDevice.Id_Device);
                     var arrayUpdate = Builders<Object.ObjDevice>.Update.
-                        Set("Name_Deivce", update.Name_Device).
-                        Set("Price_Device", update.Price_Device).
-                        Set("Function_Device", update.Function_Device).
-                        Set("Id_Type", update.Id_Type).
-                        Set("Name_Type", update.Name_Type).
-                        Set("Room", update.Room).
-                        Set("Status_Device", update.Status_Device);
+                        Set("Name_Device", objDevice.Name_Device).
+                        Set("Price_Device", objDevice.Price_Device).
+                        Set("Function_Device", objDevice.Function_Device).
+                        Set("Id_Type", objDevice.Id_Type).
+                        Set("Name_Type", typeDevice.Name_Type).
+                        Set("Room", objDevice.Room).
+                        Set("Status_Device", objDevice.Status_Device);
                     collection.UpdateOne(Filter, arrayUpdate);
                     return 1;
                 }
@@ -79,50 +94,78 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.Model
 
         public int Save(Object.ObjDevice objDevice)
         {
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "INSERT INTO Device(Name_Device, Price, ,Qty_Device, Function_Device, Room, Id_Type, Status_Device) " +
-                "VALUES (@nameDevice, @price, @qtyDevice,@function, @room, @idType, @status);";
-
-            cmd.Parameters.Add("nameDevice", SqlDbType.NVarChar).Value = objDevice.Name_Device;
-            cmd.Parameters.Add("price", SqlDbType.NVarChar).Value = objDevice.Price_Device;
-            cmd.Parameters.Add("function", SqlDbType.NVarChar).Value = objDevice.Function_Device;
-            cmd.Parameters.Add("room", SqlDbType.NVarChar).Value = objDevice.Room;
-            cmd.Parameters.Add("idType", SqlDbType.NVarChar).Value = objDevice.Id_Type;
-            cmd.Parameters.Add("status", SqlDbType.NVarChar).Value = objDevice.Status_Device;
-
-            return cls.CapNhatDL(cmd);
+            //get name type
+            Object.ObjTypeDevice typeDevice = new Object.ObjTypeDevice();
+            var client1 = new MongoClient("mongodb://127.0.0.1/27017"); // đường dẫn đến server
+            var db1 = client1.GetDatabase("QuanLyThietBi"); //truy cập vào database
+            var collection1 = db1.GetCollection<Object.ObjTypeDevice>("Type_Device"); //truy cập collection
+            var query1 = Builders<Object.ObjTypeDevice>.Filter.Eq("Id_Type", objDevice.Id_Type);
+            var result1 = collection1.Find(query1).ToList();
+            typeDevice = result1[0];
+            //save data to device
+            var client = new MongoClient("mongodb://127.0.0.1/27017"); // đường dẫn đến server
+            var db = client.GetDatabase("QuanLyThietBi"); //truy cập vào database
+            var collection = db.GetCollection<Object.ObjDevice>("Device"); //truy cập collection book
+            Object.ObjDevice insert = new Object.ObjDevice();
+            insert.Id_Device = objDevice.Id_Device;
+            insert.Name_Device = objDevice.Name_Device;
+            insert.Price_Device = objDevice.Price_Device;
+            insert.Function_Device = objDevice.Function_Device;
+            insert.Id_Type = objDevice.Id_Type;
+            insert.Name_Type = typeDevice.Name_Type;
+            insert.Room = objDevice.Room;
+            insert.Status_Device = objDevice.Status_Device;
+            collection.InsertOne(insert);
+            return 1;
         }
 
-        public DataSet getListDevice(string key, string tieuchi)
+        public DataGridView getListDevice(string key, string tieuchi)
         {
-            string sql = "SELECT * FROM Device WHERE ";
+            /*Mã Thiết Bị
+            Tên Thiết Bị
+            Mã Loại Thiết Bị
+            Phòng Học*/
 
+            DataGridView dataGrid = new DataGridView();
+            var client = new MongoClient("mongodb://127.0.0.1/27017"); // đường dẫn đến server
+            var db = client.GetDatabase("QuanLyThietBi"); //truy cập vào database
+            var collection = db.GetCollection<Object.ObjDevice>("Device"); //truy cập collection
+            List<Object.ObjDevice> result;
+            FilterDefinition<Object.ObjDevice> query;
             switch (tieuchi)
             {
                 case "Id_Device":
-                    sql += "Id_Device = " + key + "";
-                    break;
+                    {
+                        query = Builders<Object.ObjDevice>.Filter.Eq("Id_Device", key);
+                        break;
+                    }
                 case "Name_Device":
-                    sql += "Name_Device like '%" + key + "%'";
-                    break;
-                case "Room":
-                    sql += "Room like '%" + key + "%'";
-                    break;
+                    {
+                        query = Builders<Object.ObjDevice>.Filter.Eq("Name_Device", key);
+                        break;
+                    }
+                case "Id_Type":
+                    {
+                        query = Builders<Object.ObjDevice>.Filter.Eq("Id_Type", key);
+                        break;
+                    }
                 default:
-                    sql += "Id_Type = " + key + "";
-                    break;
+                    {
+                        query = Builders<Object.ObjDevice>.Filter.Eq("Room", key);
+                        break;
+                    }
             }
             try
             {
-                SqlCommand sqlcmd = new SqlCommand(sql);
-                return cls.LayDuLieu(sqlcmd);
+                result = collection.Find(query).ToList();
+                dataGrid.DataSource = result;
+                return dataGrid;
             }
             catch (Exception ce)
             {
                 MessageBox.Show("Null " + ce.Message);
                 return null;
             }
-
         }
     }
 }

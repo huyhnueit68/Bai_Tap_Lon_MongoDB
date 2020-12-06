@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,60 +9,46 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.Object
 {
     class ObjRentDevice
     {
-        private string _idRent;
+        public ObjectId _id { get; set; }
 
-        public string Id_Rent
+        private double _idRent;
+
+        public double Id_Rent
         {
             get { return _idRent; }
             set { _idRent = value; }
         }
 
-        private string _dayRent;
+        private DateTime _dayRent;
 
-        public string Day_Rent
+        public DateTime Date_Rent
         {
             get { return _dayRent; }
             set { _dayRent = value; }
         }
 
-        private string _dayPay;
+        private DateTime _dayPay;
 
-        public string Day_Pay
+        public DateTime Date_Pay
         {
             get { return _dayPay; }
             set { _dayPay = value; }
         }
 
-        private string _idDevice;
+        private double _idDevice;
 
-        public string Id_Device
+        public double Id_Device
         {
             get { return _idDevice; }
             set { _idDevice = value; }
         }
 
-        private string _qtyDevice;
-
-        public string Qty_Device
-        {
-            get { return _qtyDevice; }
-            set { _qtyDevice = value; }
-        }
-
-        private string _idCustomer;
-
-        public string Id_Customer
-        {
-            get { return _idCustomer; }
-            set { _idCustomer = value; }
-        }
-
-        private string _statusRent;
-
-        public string Status_Device
-        {
-            get { return _statusRent; }
-            set { _statusRent = value; }
-        }
+        public string Name_Device { get; set; }
+        public string Room { get; set; }
+        public double Id_Type { get; set; }
+        public string Status_Device { get; set; }
+        public double Id_Customer { get; set; }
+        public string Name_Customer { get; set; }
+        public double Id_Group { get; set; }
     }
 }

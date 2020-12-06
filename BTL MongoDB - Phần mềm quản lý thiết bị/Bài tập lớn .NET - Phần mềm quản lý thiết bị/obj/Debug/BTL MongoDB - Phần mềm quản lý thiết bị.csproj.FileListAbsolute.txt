@@ -1,0 +1,41 @@
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\bin\Debug\Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.exe.config
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\bin\Debug\Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.exe
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\bin\Debug\Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.pdb
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\bin\Debug\FontAwesome.Sharp.dll
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\obj\Debug\BTL MongoDB - Phần mềm quản lý thiết bị.csprojAssemblyReference.cache
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\obj\Debug\Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.Login.resources
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\obj\Debug\Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.MainControl.resources
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\obj\Debug\Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.Properties.Resources.resources
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\obj\Debug\Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View.AddNewCustomerDetail.resources
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\obj\Debug\Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View.AddNewDevice.resources
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\obj\Debug\Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View.AddThanhLy.resources
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\obj\Debug\Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View.BieuDoTBThanhLy.resources
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\obj\Debug\Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View.Default.resources
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\obj\Debug\Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View.MuonThietBi.resources
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\obj\Debug\Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View.QLMuonTra.resources
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\obj\Debug\Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View.QLThanhLyTB.resources
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\obj\Debug\Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View.QLThongKe.resources
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\obj\Debug\Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View.QuanLyNguoiDung.resources
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\obj\Debug\Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View.QuanLyThietBi.resources
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\obj\Debug\Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View.TraThietBi.resources
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\obj\Debug\BTL MongoDB - Phần mềm quản lý thiết bị.csproj.GenerateResource.cache
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\obj\Debug\BTL MongoDB - Phần mềm quản lý thiết bị.csproj.CoreCompileInputs.cache
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\obj\Debug\BTL MongoDB - Phần mềm quản lý thiết bị.csproj.CopyComplete
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\obj\Debug\Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.exe
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\obj\Debug\Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.pdb
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\bin\Debug\mongocrypt.dll
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\bin\Debug\snappy32.dll
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\bin\Debug\snappy64.dll
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\bin\Debug\libzstd.dll
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\bin\Debug\DnsClient.dll
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\bin\Debug\MongoDB.Bson.dll
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\bin\Debug\MongoDB.Driver.Core.dll
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\bin\Debug\MongoDB.Driver.dll
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\bin\Debug\MongoDB.Libmongocrypt.dll
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\bin\Debug\SharpCompress.dll
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\bin\Debug\System.Buffers.dll
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\bin\Debug\DnsClient.xml
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\bin\Debug\MongoDB.Bson.xml
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\bin\Debug\MongoDB.Driver.xml
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\bin\Debug\MongoDB.Driver.Core.xml
+C:\Document Study\LEARN\HK5\CSDL-NC\Bai_Tap_Lon_MongoDB\BTL MongoDB - Phần mềm quản lý thiết bị\Bài tập lớn .NET - Phần mềm quản lý thiết bị\bin\Debug\System.Buffers.xml

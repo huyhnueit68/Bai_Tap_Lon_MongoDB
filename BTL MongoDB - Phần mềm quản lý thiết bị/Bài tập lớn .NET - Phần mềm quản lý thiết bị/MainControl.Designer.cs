@@ -53,6 +53,7 @@
             this.btnQLNhomNguoiDung = new System.Windows.Forms.Button();
             this.btnQLThanhLy = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnQuanLyLoaiTB = new System.Windows.Forms.Button();
             this.panelformularios.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -221,6 +222,7 @@
             // panelMenuCustomer
             // 
             this.panelMenuCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
+            this.panelMenuCustomer.Controls.Add(this.btnQuanLyLoaiTB);
             this.panelMenuCustomer.Controls.Add(this.btnThongKeTB);
             this.panelMenuCustomer.Controls.Add(this.btnDangXuat);
             this.panelMenuCustomer.Controls.Add(this.pictureBox3);
@@ -235,7 +237,6 @@
             this.panelMenuCustomer.Name = "panelMenuCustomer";
             this.panelMenuCustomer.Size = new System.Drawing.Size(251, 734);
             this.panelMenuCustomer.TabIndex = 1;
-            this.panelMenuCustomer.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMenuCustomer_Paint);
             // 
             // btnThongKeTB
             // 
@@ -247,7 +248,7 @@
             this.btnThongKeTB.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnThongKeTB.Image = ((System.Drawing.Image)(resources.GetObject("btnThongKeTB.Image")));
             this.btnThongKeTB.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThongKeTB.Location = new System.Drawing.Point(3, 513);
+            this.btnThongKeTB.Location = new System.Drawing.Point(3, 566);
             this.btnThongKeTB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThongKeTB.Name = "btnThongKeTB";
             this.btnThongKeTB.Size = new System.Drawing.Size(251, 49);
@@ -320,7 +321,7 @@
             this.btnQLMuonTra.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnQLMuonTra.Image = ((System.Drawing.Image)(resources.GetObject("btnQLMuonTra.Image")));
             this.btnQLMuonTra.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnQLMuonTra.Location = new System.Drawing.Point(5, 386);
+            this.btnQLMuonTra.Location = new System.Drawing.Point(5, 439);
             this.btnQLMuonTra.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnQLMuonTra.Name = "btnQLMuonTra";
             this.btnQLMuonTra.Size = new System.Drawing.Size(245, 49);
@@ -381,7 +382,7 @@
             this.btnQLThanhLy.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnQLThanhLy.Image = ((System.Drawing.Image)(resources.GetObject("btnQLThanhLy.Image")));
             this.btnQLThanhLy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnQLThanhLy.Location = new System.Drawing.Point(5, 449);
+            this.btnQLThanhLy.Location = new System.Drawing.Point(5, 502);
             this.btnQLThanhLy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnQLThanhLy.Name = "btnQLThanhLy";
             this.btnQLThanhLy.Size = new System.Drawing.Size(251, 49);
@@ -396,6 +397,26 @@
             // 
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
+            // 
+            // btnQuanLyLoaiTB
+            // 
+            this.btnQuanLyLoaiTB.FlatAppearance.BorderSize = 0;
+            this.btnQuanLyLoaiTB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
+            this.btnQuanLyLoaiTB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnQuanLyLoaiTB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQuanLyLoaiTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuanLyLoaiTB.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnQuanLyLoaiTB.Image = ((System.Drawing.Image)(resources.GetObject("btnQuanLyLoaiTB.Image")));
+            this.btnQuanLyLoaiTB.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnQuanLyLoaiTB.Location = new System.Drawing.Point(8, 376);
+            this.btnQuanLyLoaiTB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnQuanLyLoaiTB.Name = "btnQuanLyLoaiTB";
+            this.btnQuanLyLoaiTB.Size = new System.Drawing.Size(245, 49);
+            this.btnQuanLyLoaiTB.TabIndex = 11;
+            this.btnQuanLyLoaiTB.Text = " Quản Lý Loại Thiết Bị";
+            this.btnQuanLyLoaiTB.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnQuanLyLoaiTB.UseVisualStyleBackColor = true;
+            this.btnQuanLyLoaiTB.Click += new System.EventHandler(this.btnQuanLyLoaiTB_Click);
             // 
             // MainControl
             // 
@@ -445,5 +466,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnThongKeTB;
+        private System.Windows.Forms.Button btnQuanLyLoaiTB;
     }
 }

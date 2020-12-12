@@ -141,6 +141,8 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị
                 btnQLThanhLy.BackColor = Color.FromArgb(4, 41, 68);
             if (Application.OpenForms["QuanLyThongKe"] == null)
                 btnThongKeTB.BackColor = Color.FromArgb(4, 41, 68);
+            if (Application.OpenForms["QuanLyLoaiThietBi"] == null)
+                btnQuanLyLoaiTB.BackColor = Color.FromArgb(4, 41, 68);
         }
 
         //reset color for button
@@ -152,6 +154,7 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị
             btnQLMuonTra.BackColor = Color.FromArgb(4, 41, 68);
             btnQLThanhLy.BackColor = Color.FromArgb(4, 41, 68);
             btnThongKeTB.BackColor = Color.FromArgb(4, 41, 68);
+            btnQuanLyLoaiTB.BackColor = Color.FromArgb(4, 41, 68);
         }
 
         private void pictureBox3_MouseClick(object sender, MouseEventArgs e)
@@ -167,7 +170,7 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị
 
         public static bool onLoadCheckAccLogin()
         {
-            //query data
+            /*//query data
             try
             {
                 string query = "SELECT * FROM Account WHERE Id_Customer = " + Login.getIdCustomerLogin() + "";
@@ -190,7 +193,8 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị
             {
                 MessageBox.Show(ce.Message);
                 return false;
-            }
+            }*/
+            return true;
         }
 
         private void btnQLNguoiDung_Click(object sender, EventArgs e)
@@ -236,17 +240,20 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị
             btnThongKeTB.BackColor = Color.FromArgb(0, 154, 205);
         }
 
-        private void panelMenuCustomer_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void btnQLNhomNguoiDung_Click(object sender, EventArgs e)
         {
             //form thong ke
             resetColorForButton();
             AbrirFormulario<QLNhomNguoiDung>();
             btnQLNhomNguoiDung.BackColor = Color.FromArgb(0, 154, 205);
+        }
+
+        private void btnQuanLyLoaiTB_Click(object sender, EventArgs e)
+        {
+            //form thong ke
+            resetColorForButton();
+            AbrirFormulario<QuanLyLoaiTB>();
+            btnQuanLyLoaiTB.BackColor = Color.FromArgb(0, 154, 205);
         }
     }
 }

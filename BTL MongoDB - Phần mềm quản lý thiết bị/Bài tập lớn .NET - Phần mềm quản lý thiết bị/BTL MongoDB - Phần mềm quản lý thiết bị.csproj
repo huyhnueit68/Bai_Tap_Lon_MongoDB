@@ -121,6 +121,7 @@
     <Compile Include="Controller\LiquiCtrl.cs" />
     <Compile Include="Controller\RentDeviceCtrl.cs" />
     <Compile Include="Controller\StaisticalCtr.cs" />
+    <Compile Include="Controller\TypeDeviceCtrl.cs" />
     <Compile Include="HelperData\DataConfig.cs" />
     <Compile Include="Model\ConnectData\ConnectDatabase.cs" />
     <Compile Include="Login.cs">
@@ -141,6 +142,7 @@
     <Compile Include="Model\LiquiManage.cs" />
     <Compile Include="Model\RentDeviceManage.cs" />
     <Compile Include="Model\StatisticalMng.cs" />
+    <Compile Include="Model\TypeDeviceMng.cs" />
     <Compile Include="Object\ObjCustomer.cs" />
     <Compile Include="Object\ObjCustomerDetail.cs" />
     <Compile Include="Object\ObjCustomerGroup.cs" />
@@ -162,6 +164,12 @@
     </Compile>
     <Compile Include="View\AddNewDevice.Designer.cs">
       <DependentUpon>AddNewDevice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddNewTypeDevice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AddNewTypeDevice.Designer.cs">
+      <DependentUpon>AddNewTypeDevice.cs</DependentUpon>
     </Compile>
     <Compile Include="View\AddThanhLy.cs">
       <SubType>Form</SubType>
@@ -211,6 +219,12 @@
     <Compile Include="View\QLThongKe.Designer.cs">
       <DependentUpon>QLThongKe.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\QuanLyLoaiTB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\QuanLyLoaiTB.Designer.cs">
+      <DependentUpon>QuanLyLoaiTB.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\QuanLyNguoiDung.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -257,6 +271,9 @@
     <EmbeddedResource Include="View\AddNewDevice.resx">
       <DependentUpon>AddNewDevice.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\AddNewTypeDevice.resx">
+      <DependentUpon>AddNewTypeDevice.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\AddThanhLy.resx">
       <DependentUpon>AddThanhLy.cs</DependentUpon>
     </EmbeddedResource>
@@ -280,6 +297,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\QLThongKe.resx">
       <DependentUpon>QLThongKe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\QuanLyLoaiTB.resx">
+      <DependentUpon>QuanLyLoaiTB.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\QuanLyNguoiDung.resx">
       <DependentUpon>QuanLyNguoiDung.cs</DependentUpon>

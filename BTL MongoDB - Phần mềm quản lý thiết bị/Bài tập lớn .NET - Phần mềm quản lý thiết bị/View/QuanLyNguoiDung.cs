@@ -224,7 +224,7 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
                 }
             }
             else if (rdbId_Customer.Checked)
-            {
+            { 
                 tieuchi = "Id_Customer";
                 int value;
                 if (int.TryParse(txtTimKiem.Text.Trim(), out value))

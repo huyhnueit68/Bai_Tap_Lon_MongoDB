@@ -49,7 +49,6 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.Model
 
         public int Update(Object.ObjCustomer customer)
         {
-            Object.ObjCustomer update = new Object.ObjCustomer();
             var client = new MongoClient("mongodb://127.0.0.1/27017"); // đường dẫn đến server
             var db = client.GetDatabase("QuanLyThietBi"); //truy cập vào database
             var collection = db.GetCollection<Object.ObjCustomer>("Customer"); //truy cập collection book

@@ -41,12 +41,9 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
         private void loadThongKe_Tick(object sender, EventArgs e)
         {
             //load tong thiet bi dang su dung
-            DataTable dataTable1 = StatisticalMng.HTTongTBDung();
-            lblTongTBSuDung.Text = dataTable1.Rows[0]["Total_Device"].ToString();
+            lblTongTBSuDung.Text = StatisticalMng.HTTongTBDung().ToString();
             //load tong so thiet bi thanh ly
-            DataTable dataTable2 = StatisticalMng.HTTongThanhLy();
-            lblTongTBThanhLy.Text = dataTable2.Rows[0]["Total_Liqui"].ToString();
-
+            lblTongTBThanhLy.Text = StatisticalMng.HTTongThanhLy().ToString();
         }
 
         private void QLThongKe_Load(object sender, EventArgs e)
@@ -67,7 +64,7 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
         {
             if (CheckDateTimeQuery())
             {
-                staisticalCtr.ThongKeTheoTime(dgvThongKe, dtpStart.Value, dtpEnd.Value);
+                staisticalCtr.ThongKeTheoTime(dgvListRentDevice, dtpStart.Value, dtpEnd.Value);
             }
             else
             {
@@ -89,8 +86,8 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
 
         private void dgvThongKe_MouseClick(object sender, MouseEventArgs e)
         {
-            MessageBox.Show("Xem thôi chứ đừng nghịch bạn ơi :v ", "Sad :((", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
+/*            MessageBox.Show("Xem thôi chứ đừng nghịch bạn ơi :v ", "Sad :((", MessageBoxButtons.OK, MessageBoxIcon.Error);
+*/        }
 
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
@@ -100,7 +97,7 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
             }
             else
             {
-                staisticalCtr.ThongKeTheoTen(dgvThongKe, txtName_Customer.Text.Trim());
+                staisticalCtr.ThongKeTheoTen(dgvListRentDevice, txtName_Customer.Text.Trim());
             }
         }
 
@@ -108,6 +105,9 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
         {
             BieuDoTBThanhLy bieuDoTBThanhLy = new BieuDoTBThanhLy();
             bieuDoTBThanhLy.Show();
+
+            /*ThongKeThanhLyTheoNgay thongKeThanhLyTheoNgay = new ThongKeThanhLyTheoNgay();
+            thongKeThanhLyTheoNgay.Show();*/
         }
     }
 }

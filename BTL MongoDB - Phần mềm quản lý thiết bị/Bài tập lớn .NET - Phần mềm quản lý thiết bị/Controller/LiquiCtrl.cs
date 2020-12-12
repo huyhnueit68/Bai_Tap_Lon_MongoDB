@@ -6,6 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MongoDB.Driver;
+using MongoDB.Bson;
+using MongoDB.Driver.Linq;
 
 namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.Controller
 {
@@ -22,14 +25,14 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.Controller
         //Hàm xử lý hiển thị thiết bị lên combox.
         public void HienThiCbbThietBi(ComboBox cbo)
         {
-            cbo.DataSource = liquiMng.LayDSThietBi().Tables[0];
+            cbo.DataSource = liquiMng.LayDSThietBi().DataSource;
             cbo.DisplayMember = "Name_Device";
             cbo.ValueMember = "Id_Device";
         }
 
         public void HienThi(DataGridView dgv, string id_liqui)
         {
-            dgv.DataSource = liquiMng.GetDataLiqui(id_liqui).Tables[0];
+            dgv.DataSource = liquiMng.GetDataLiqui(id_liqui).DataSource;
         }
 
         public int Update(Object.ObjLiqui objLiqui)
@@ -48,10 +51,13 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.Controller
         {
             try
             {
-                SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = "SELECT * FROM Liquidate WHERE Id_Liqui = @id";
-                cmd.Parameters.Add("id", SqlDbType.Int).Value = id;
-                if (helperData.LayDuLieu(cmd).Tables[0].Rows.Count <= 0)
+                var client = new MongoClient("mongodb://127.0.0.1/27017"); // đường dẫn đến server
+                var db = client.GetDatabase("QuanLyThietBi"); //truy cập vào database
+                var collection = db.GetCollection<Object.ObjLiqui>("Liquidate"); //truy cập collection
+                var query = Builders<Object.ObjLiqui>.Filter.Eq("Id_Rent", id);
+                var result = collection.Find(query).ToList();
+
+                if (result.Count <= 0)
                     return false;
                 else
                     return true;
@@ -66,7 +72,7 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.Controller
 
         public void HienThiThanhLy(DataGridView dgv, string tukhoa, string tieuchi)
         {
-            dgv.DataSource = liquiMng.getListLiqui(tukhoa, tieuchi).Tables[0];
+            dgv.DataSource = liquiMng.getListLiqui(tukhoa, tieuchi).DataSource;
         }
     }
 }

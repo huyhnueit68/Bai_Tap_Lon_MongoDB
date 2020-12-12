@@ -209,6 +209,7 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
         {
             View.AddNewCustomerDetail addNewCustomerDetail = new AddNewCustomerDetail();
             addNewCustomerDetail.Show();
+            ShowDLNguoiDung();
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
@@ -250,7 +251,7 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
         {
             var client = new MongoClient("mongodb://127.0.0.1/27017"); // đường dẫn đến server
             var db = client.GetDatabase("QuanLyThietBi"); //truy cập vào database
-            var collection = db.GetCollection<Object.ObjCustomer>("Customer"); //truy cập collection book
+            var collection = db.GetCollection<Object.ObjCustomer>("Customer"); //truy cập collection
             if(Login.resultLogin == 1)
             {
                 var result = collection.AsQueryable<Object.ObjCustomer>().ToList();

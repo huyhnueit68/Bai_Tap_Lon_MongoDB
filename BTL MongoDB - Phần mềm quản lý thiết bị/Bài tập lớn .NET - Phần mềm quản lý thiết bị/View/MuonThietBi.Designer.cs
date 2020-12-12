@@ -49,13 +49,13 @@
             this.lblUsername = new System.Windows.Forms.Label();
             this.errId_Customer = new System.Windows.Forms.ErrorProvider(this.components);
             this.grpThongTinTaiKhoan = new System.Windows.Forms.GroupBox();
-            this.txtQty_Device = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.cbbThietBi = new System.Windows.Forms.ComboBox();
-            this.mntNgayTra = new System.Windows.Forms.MonthCalendar();
-            this.mntNgayMuon = new System.Windows.Forms.MonthCalendar();
             this.btnNgayTra = new System.Windows.Forms.Button();
             this.btnNgayMuon = new System.Windows.Forms.Button();
+            this.txtId_Rent = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.mntNgayMuon = new System.Windows.Forms.MonthCalendar();
+            this.mntNgayTra = new System.Windows.Forms.MonthCalendar();
             ((System.ComponentModel.ISupportInitialize)(this.errId_Rent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errDay_Rent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errDay_Pay)).BeginInit();
@@ -85,7 +85,7 @@
             // 
             this.rdbTra.AutoSize = true;
             this.rdbTra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbTra.Location = new System.Drawing.Point(551, 247);
+            this.rdbTra.Location = new System.Drawing.Point(781, 186);
             this.rdbTra.Margin = new System.Windows.Forms.Padding(4);
             this.rdbTra.Name = "rdbTra";
             this.rdbTra.Size = new System.Drawing.Size(51, 22);
@@ -98,7 +98,7 @@
             // 
             this.rdbMuon.AutoSize = true;
             this.rdbMuon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbMuon.Location = new System.Drawing.Point(425, 247);
+            this.rdbMuon.Location = new System.Drawing.Point(655, 186);
             this.rdbMuon.Margin = new System.Windows.Forms.Padding(4);
             this.rdbMuon.Name = "rdbMuon";
             this.rdbMuon.Size = new System.Drawing.Size(67, 22);
@@ -122,7 +122,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(279, 247);
+            this.label4.Location = new System.Drawing.Point(509, 186);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(78, 18);
@@ -131,7 +131,7 @@
             // 
             // txtId_Customer
             // 
-            this.txtId_Customer.Location = new System.Drawing.Point(649, 178);
+            this.txtId_Customer.Location = new System.Drawing.Point(649, 124);
             this.txtId_Customer.Margin = new System.Windows.Forms.Padding(4);
             this.txtId_Customer.MaxLength = 20;
             this.txtId_Customer.Name = "txtId_Customer";
@@ -143,7 +143,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(504, 184);
+            this.label3.Location = new System.Drawing.Point(504, 130);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(114, 18);
@@ -152,7 +152,7 @@
             // 
             // txtDate_Pay
             // 
-            this.txtDate_Pay.Location = new System.Drawing.Point(191, 117);
+            this.txtDate_Pay.Location = new System.Drawing.Point(191, 179);
             this.txtDate_Pay.Margin = new System.Windows.Forms.Padding(4);
             this.txtDate_Pay.MaxLength = 20;
             this.txtDate_Pay.Name = "txtDate_Pay";
@@ -163,7 +163,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(64, 124);
+            this.label2.Location = new System.Drawing.Point(64, 186);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 18);
@@ -203,7 +203,7 @@
             // 
             // txtDate_Rent
             // 
-            this.txtDate_Rent.Location = new System.Drawing.Point(191, 60);
+            this.txtDate_Rent.Location = new System.Drawing.Point(191, 116);
             this.txtDate_Rent.Margin = new System.Windows.Forms.Padding(4);
             this.txtDate_Rent.MaxLength = 20;
             this.txtDate_Rent.Name = "txtDate_Rent";
@@ -222,7 +222,7 @@
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(64, 68);
+            this.lblUsername.Location = new System.Drawing.Point(64, 124);
             this.lblUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(84, 18);
@@ -239,11 +239,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpThongTinTaiKhoan.BackColor = System.Drawing.Color.Transparent;
-            this.grpThongTinTaiKhoan.Controls.Add(this.txtQty_Device);
-            this.grpThongTinTaiKhoan.Controls.Add(this.label1);
-            this.grpThongTinTaiKhoan.Controls.Add(this.cbbThietBi);
             this.grpThongTinTaiKhoan.Controls.Add(this.mntNgayTra);
             this.grpThongTinTaiKhoan.Controls.Add(this.mntNgayMuon);
+            this.grpThongTinTaiKhoan.Controls.Add(this.txtId_Rent);
+            this.grpThongTinTaiKhoan.Controls.Add(this.label5);
+            this.grpThongTinTaiKhoan.Controls.Add(this.cbbThietBi);
             this.grpThongTinTaiKhoan.Controls.Add(this.btnNgayTra);
             this.grpThongTinTaiKhoan.Controls.Add(this.btnNgayMuon);
             this.grpThongTinTaiKhoan.Controls.Add(this.rdbTra);
@@ -269,27 +269,6 @@
             this.grpThongTinTaiKhoan.TabStop = false;
             this.grpThongTinTaiKhoan.Text = "Thông Tin";
             // 
-            // txtQty_Device
-            // 
-            this.txtQty_Device.Location = new System.Drawing.Point(649, 114);
-            this.txtQty_Device.Margin = new System.Windows.Forms.Padding(4);
-            this.txtQty_Device.MaxLength = 20;
-            this.txtQty_Device.Name = "txtQty_Device";
-            this.txtQty_Device.Size = new System.Drawing.Size(183, 24);
-            this.txtQty_Device.TabIndex = 50;
-            this.txtQty_Device.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQty_Device_KeyPress);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(504, 120);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 18);
-            this.label1.TabIndex = 49;
-            this.label1.Text = "Số Lượng";
-            // 
             // cbbThietBi
             // 
             this.cbbThietBi.FormattingEnabled = true;
@@ -298,31 +277,12 @@
             this.cbbThietBi.Name = "cbbThietBi";
             this.cbbThietBi.Size = new System.Drawing.Size(183, 26);
             this.cbbThietBi.TabIndex = 48;
-            // 
-            // mntNgayTra
-            // 
-            this.mntNgayTra.Location = new System.Drawing.Point(147, 41);
-            this.mntNgayTra.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
-            this.mntNgayTra.MaxSelectionCount = 1;
-            this.mntNgayTra.Name = "mntNgayTra";
-            this.mntNgayTra.TabIndex = 47;
-            this.mntNgayTra.Visible = false;
-            this.mntNgayTra.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.mntNgayTra_DateSelected);
-            // 
-            // mntNgayMuon
-            // 
-            this.mntNgayMuon.Location = new System.Drawing.Point(148, 29);
-            this.mntNgayMuon.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
-            this.mntNgayMuon.MaxSelectionCount = 1;
-            this.mntNgayMuon.Name = "mntNgayMuon";
-            this.mntNgayMuon.TabIndex = 46;
-            this.mntNgayMuon.Visible = false;
-            this.mntNgayMuon.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.mntNgayMuon_DateSelected);
+            this.cbbThietBi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbbThietBi_KeyPress);
             // 
             // btnNgayTra
             // 
             this.btnNgayTra.ForeColor = System.Drawing.Color.Black;
-            this.btnNgayTra.Location = new System.Drawing.Point(375, 114);
+            this.btnNgayTra.Location = new System.Drawing.Point(375, 176);
             this.btnNgayTra.Margin = new System.Windows.Forms.Padding(4);
             this.btnNgayTra.Name = "btnNgayTra";
             this.btnNgayTra.Size = new System.Drawing.Size(36, 28);
@@ -334,7 +294,7 @@
             // btnNgayMuon
             // 
             this.btnNgayMuon.ForeColor = System.Drawing.Color.Black;
-            this.btnNgayMuon.Location = new System.Drawing.Point(375, 59);
+            this.btnNgayMuon.Location = new System.Drawing.Point(375, 115);
             this.btnNgayMuon.Margin = new System.Windows.Forms.Padding(4);
             this.btnNgayMuon.Name = "btnNgayMuon";
             this.btnNgayMuon.Size = new System.Drawing.Size(36, 28);
@@ -342,6 +302,46 @@
             this.btnNgayMuon.Text = "...";
             this.btnNgayMuon.UseVisualStyleBackColor = true;
             this.btnNgayMuon.Click += new System.EventHandler(this.btnNgayMuon_Click);
+            // 
+            // txtId_Rent
+            // 
+            this.txtId_Rent.Location = new System.Drawing.Point(191, 57);
+            this.txtId_Rent.Margin = new System.Windows.Forms.Padding(4);
+            this.txtId_Rent.MaxLength = 20;
+            this.txtId_Rent.Name = "txtId_Rent";
+            this.txtId_Rent.Size = new System.Drawing.Size(220, 24);
+            this.txtId_Rent.TabIndex = 52;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(64, 60);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(71, 18);
+            this.label5.TabIndex = 51;
+            this.label5.Text = "Mã mượn";
+            // 
+            // mntNgayMuon
+            // 
+            this.mntNgayMuon.Location = new System.Drawing.Point(151, 32);
+            this.mntNgayMuon.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
+            this.mntNgayMuon.MaxSelectionCount = 1;
+            this.mntNgayMuon.Name = "mntNgayMuon";
+            this.mntNgayMuon.TabIndex = 53;
+            this.mntNgayMuon.Visible = false;
+            this.mntNgayMuon.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.mntNgayMuon_DateSelected_1);
+            // 
+            // mntNgayTra
+            // 
+            this.mntNgayTra.Location = new System.Drawing.Point(151, 32);
+            this.mntNgayTra.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
+            this.mntNgayTra.MaxSelectionCount = 1;
+            this.mntNgayTra.Name = "mntNgayTra";
+            this.mntNgayTra.TabIndex = 54;
+            this.mntNgayTra.Visible = false;
+            this.mntNgayTra.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.mntNgayTra_DateSelected_1);
             // 
             // MuonThietBi
             // 
@@ -391,12 +391,12 @@
         private System.Windows.Forms.ErrorProvider errQty_Device;
         private System.Windows.Forms.ErrorProvider errStatus_Rent;
         private System.Windows.Forms.ErrorProvider errId_Customer;
-        private System.Windows.Forms.MonthCalendar mntNgayTra;
-        private System.Windows.Forms.MonthCalendar mntNgayMuon;
         private System.Windows.Forms.Button btnNgayTra;
         private System.Windows.Forms.Button btnNgayMuon;
         private System.Windows.Forms.ComboBox cbbThietBi;
-        private System.Windows.Forms.TextBox txtQty_Device;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.MonthCalendar mntNgayMuon;
+        private System.Windows.Forms.TextBox txtId_Rent;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.MonthCalendar mntNgayTra;
     }
 }

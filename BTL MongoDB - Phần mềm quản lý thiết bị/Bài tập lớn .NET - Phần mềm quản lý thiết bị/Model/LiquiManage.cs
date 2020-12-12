@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MongoDB.Driver;
+using MongoDB.Bson;
+using MongoDB.Driver.Linq;
 
 namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.Model
 {
@@ -16,48 +19,88 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.Model
 
         public void HienThi(DataGridView dgv)
         {
-            dgv.DataSource = GetDataLiqui(Login.getIdCustomerLogin()).Tables[0];
+            var client = new MongoClient("mongodb://127.0.0.1/27017"); // đường dẫn đến server
+            var db = client.GetDatabase("QuanLyThietBi"); //truy cập vào database
+            var collection = db.GetCollection<Object.ObjLiqui>("Liquidate"); //truy cập collection book
+            var result = collection.AsQueryable<Object.ObjLiqui>().ToList();
+            dgv.DataSource = result;
         }
+
 
         public int Xoa(string id)
         {
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "DELETE FROM Liquidate WHERE Id_Liqui = @id";
-            cmd.Parameters.Add("id", SqlDbType.Int).Value = Convert.ToInt32(id);
-            return cls.CapNhatDL(cmd);
+            Object.ObjDevice delete = new Object.ObjDevice();
+            var client = new MongoClient("mongodb://127.0.0.1/27017"); // đường dẫn đến server
+            var db = client.GetDatabase("QuanLyThietBi"); //truy cập vào database
+            var collection = db.GetCollection<Object.ObjLiqui>("Liquidate"); //truy cập collection
+            var Filter = Builders<Object.ObjLiqui>.Filter.Eq("Id_Liqui", id);
+            collection.DeleteMany(Filter);
+            return 1;
         }
 
-        public DataSet GetDataLiqui(string idCustomer)
+        public DataGridView GetDataLiqui(string idCustomer)
         {
-            SqlCommand sqlcmd;
-            sqlcmd = new SqlCommand("SELECT * FROM Liquidate");
-            return cls.LayDuLieu(sqlcmd);
+            DataGridView dgv = new DataGridView();
+            var client = new MongoClient("mongodb://127.0.0.1/27017"); // đường dẫn đến server
+            var db = client.GetDatabase("QuanLyThietBi"); //truy cập vào database
+            var collection = db.GetCollection<Object.ObjLiqui>("Liquidate"); //truy cập collection book
+            var result = collection.AsQueryable<Object.ObjLiqui>().ToList();
+            dgv.DataSource = result;
+            return dgv;
         }
 
         //Hàm xử lý lấy danh sách.
-        public DataSet LayDSThietBi()
+        public DataGridView LayDSThietBi()
         {
-            string select = "SELECT * ",
-                from = "FROM Device WHERE Status_Device  = N'Không sử dụng'";
-
-            SqlCommand cmd = new SqlCommand(select + from);
-            return cls.LayDuLieu(cmd);
+            DataGridView dataGrid = new DataGridView();
+            var client = new MongoClient("mongodb://127.0.0.1/27017"); // đường dẫn đến server
+            var db = client.GetDatabase("QuanLyThietBi"); //truy cập vào database
+            var collection = db.GetCollection<Object.ObjDevice>("Device"); //truy cập collection
+            List<Object.ObjDevice> result;
+            FilterDefinition<Object.ObjDevice> query;
+            query = Builders<Object.ObjDevice>.Filter.Eq("Status_Device", "Không sử dụng");
+            try
+            {
+                result = collection.Find(query).ToList();
+                dataGrid.DataSource = result;
+                return dataGrid;
+            }
+            catch (Exception ce)
+            {
+                MessageBox.Show("Null " + ce.Message);
+                return null;
+            }
         }
 
         public int Save(Object.ObjLiqui cdt)
         {
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "INSERT INTO Liquidate(Id_Liqui, Name_Liqui, Id_Device, Qty_Device, Date_Liqui) " +
-                "VALUES (@idLiqui, @nameLiqui, @idDevice, @qtyDevice, @dateLiqui); ";
+            //get name device, room and type
+            Object.ObjDevice item1 = new Object.ObjDevice();
+            var client = new MongoClient("mongodb://127.0.0.1/27017"); // đường dẫn đến server
+            var db = client.GetDatabase("QuanLyThietBi"); //truy cập vào database
 
-            cmd.Parameters.Add("idLiqui", SqlDbType.DateTime).Value = cdt.Id_Liqui;
-            cmd.Parameters.Add("nameLiqui", SqlDbType.DateTime).Value = cdt.Name_Liqui;
-            cmd.Parameters.Add("idDevice", SqlDbType.DateTime).Value = cdt.Id_Device;
-            cmd.Parameters.Add("qtyDevice", SqlDbType.Int).Value = cdt.Qty_Device;
-            cmd.Parameters.Add("dateLiqui", SqlDbType.Int).Value = cdt.Date_Liqui;
+            Object.ObjDevice item2 = new Object.ObjDevice();
+            var collection2 = db.GetCollection<Object.ObjDevice>("Device"); //truy cập collection
+            var query2 = Builders<Object.ObjDevice>.Filter.Eq("Id_Device", cdt.Id_Device);
+            var result2 = collection2.Find(query2).ToList();
+            item2 = result2[0];
+            //set value and save for rent device
+            var collection = db.GetCollection<Object.ObjLiqui>("Liquidate"); //truy cập collection
+            Object.ObjLiqui insert = new Object.ObjLiqui();
 
-            UpdateStatusDevice(cdt);
-            return cls.CapNhatDL(cmd);
+            insert.Id_Liqui = cdt.Id_Liqui;
+            insert.Name_Liqui = cdt.Name_Liqui;
+            insert.Date_Liqui = cdt.Date_Liqui;
+            insert.Id_Device = cdt.Id_Device;
+            insert.Name_Device = item2.Name_Device;
+            insert.Room = item2.Room;
+            insert.Id_Type = item2.Id_Type;
+            collection.InsertOne(insert);
+
+            //delete colelction device when liquidate
+            var Filter = Builders<Object.ObjDevice>.Filter.Eq("Id_Device", cdt.Id_Device);
+            collection2.DeleteMany(Filter);
+            return 1;
         }
 
         public void UpdateStatusDevice(Object.ObjLiqui cdt)
@@ -70,40 +113,43 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.Model
 
         public int Update(Object.ObjLiqui objLiqui)
         {
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "UPDATE Liquidate " +
-                "SET Name_Liqui = @nameLiqui, " +
-                "Id_Device = @idDevice, " +
-                "Qty_Device = @qty, " +
-                "Date_Liqui = @date " +
-                "WHERE Id_Liqui = @idLiqui";
-
-            cmd.Parameters.Add("nameLiqui", SqlDbType.NVarChar).Value = objLiqui.Name_Liqui;
-            cmd.Parameters.Add("idDevice", SqlDbType.NVarChar).Value = objLiqui.Id_Device;
-            cmd.Parameters.Add("qty", SqlDbType.NVarChar).Value = objLiqui.Qty_Device;
-            cmd.Parameters.Add("date", SqlDbType.DateTime).Value = objLiqui.Date_Liqui;
-            cmd.Parameters.Add("idLiqui", SqlDbType.VarChar).Value = objLiqui.Id_Liqui;
-            
-            return cls.CapNhatDL(cmd);
+            var client = new MongoClient("mongodb://127.0.0.1/27017"); // đường dẫn đến server
+            var db = client.GetDatabase("QuanLyThietBi"); //truy cập vào database
+            var collection = db.GetCollection<Object.ObjLiqui>("Liquidate"); //truy cập collection book
+            var Filter = Builders<Object.ObjLiqui>.Filter.Eq("Id_Liqui", objLiqui.Id_Liqui);
+            var arrayUpdate = Builders<Object.ObjLiqui>.Update.
+                Set("Name_Liqui", objLiqui.Name_Liqui).
+                Set("Date_Liqui", objLiqui.Date_Liqui.ToString());
+            collection.UpdateOne(Filter, arrayUpdate);
+            return 1;
         }
 
-        public DataSet getListLiqui(string key, string tieuchi)
+        public DataGridView getListLiqui(string key, string tieuchi)
         {
-            string sql = "SELECT * FROM Liquidate WHERE ";
-
+            DataGridView dataGrid = new DataGridView();
+            var client = new MongoClient("mongodb://127.0.0.1/27017"); // đường dẫn đến server
+            var db = client.GetDatabase("QuanLyThietBi"); //truy cập vào database
+            var collection = db.GetCollection<Object.ObjLiqui>("Liquidate"); //truy cập collection
+            List<Object.ObjLiqui> result;
+            FilterDefinition<Object.ObjLiqui> query;
             switch (tieuchi)
             {
                 case "Id_Liqui":
-                    sql += "Id_Liqui = " + key + "";
-                    break;
+                    {
+                        query = Builders<Object.ObjLiqui>.Filter.Eq("Id_Liqui", key);
+                        break;
+                    }
                 default:
-                    sql += "Name_Liqui like '%" + key + "%'";
-                    break;
+                    {
+                        query = Builders<Object.ObjLiqui>.Filter.Eq("Name_Liqui", key);
+                        break;
+                    }
             }
             try
             {
-                SqlCommand sqlcmd = new SqlCommand(sql);
-                return cls.LayDuLieu(sqlcmd);
+                result = collection.Find(query).ToList();
+                dataGrid.DataSource = result;
+                return dataGrid;
             }
             catch (Exception ce)
             {

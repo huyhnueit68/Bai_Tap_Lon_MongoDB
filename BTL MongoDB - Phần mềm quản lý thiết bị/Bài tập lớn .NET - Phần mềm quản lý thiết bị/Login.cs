@@ -70,6 +70,7 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị
                 var query = Builders<Object.ObjCustomer>.Filter.Eq("UserName_Customer", txtUserName.Text) & Builders<Object.ObjCustomer>.Filter.Eq("PassWord_Customer", txtPassWord.Text);
                 var result = collection.Find(query).ToList();
                 item = result[0];
+                idCustomerLogin = item.Id_Customer.ToString();
             }
             catch (Exception ce)
             {

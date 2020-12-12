@@ -31,12 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.grpThongTinTaiKhoan = new System.Windows.Forms.GroupBox();
             this.txtId_Device = new System.Windows.Forms.TextBox();
-            this.mntNgayTL = new System.Windows.Forms.MonthCalendar();
             this.btnDate_Liqui = new System.Windows.Forms.Button();
             this.txtDate_Liqui = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtQty_Device = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtId_Liqui = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -55,14 +52,14 @@
             this.lbl_QLTaiKhoan = new System.Windows.Forms.Label();
             this.errName_Liqui = new System.Windows.Forms.ErrorProvider(this.components);
             this.dgvListLiqui = new System.Windows.Forms.DataGridView();
-            this.Id_Liqui = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name_Liqui = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Id_Device = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Qty_Device = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date_Liqui = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.errId_Device = new System.Windows.Forms.ErrorProvider(this.components);
             this.errQty_Device = new System.Windows.Forms.ErrorProvider(this.components);
             this.errDate_Liqui = new System.Windows.Forms.ErrorProvider(this.components);
+            this.mntNgayTL = new System.Windows.Forms.MonthCalendar();
+            this.Id_Liqui = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name_Liqui = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id_Device = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date_Liqui = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpThongTinTaiKhoan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errId_Liqui)).BeginInit();
             this.grp_TimKiem.SuspendLayout();
@@ -79,13 +76,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpThongTinTaiKhoan.BackColor = System.Drawing.Color.Transparent;
-            this.grpThongTinTaiKhoan.Controls.Add(this.txtId_Device);
             this.grpThongTinTaiKhoan.Controls.Add(this.mntNgayTL);
+            this.grpThongTinTaiKhoan.Controls.Add(this.txtId_Device);
             this.grpThongTinTaiKhoan.Controls.Add(this.btnDate_Liqui);
             this.grpThongTinTaiKhoan.Controls.Add(this.txtDate_Liqui);
             this.grpThongTinTaiKhoan.Controls.Add(this.label3);
-            this.grpThongTinTaiKhoan.Controls.Add(this.txtQty_Device);
-            this.grpThongTinTaiKhoan.Controls.Add(this.label2);
             this.grpThongTinTaiKhoan.Controls.Add(this.label6);
             this.grpThongTinTaiKhoan.Controls.Add(this.txtId_Liqui);
             this.grpThongTinTaiKhoan.Controls.Add(this.label1);
@@ -111,27 +106,17 @@
             // txtId_Device
             // 
             this.txtId_Device.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtId_Device.Location = new System.Drawing.Point(161, 182);
+            this.txtId_Device.Location = new System.Drawing.Point(500, 121);
             this.txtId_Device.Margin = new System.Windows.Forms.Padding(4);
             this.txtId_Device.MaxLength = 20;
             this.txtId_Device.Name = "txtId_Device";
-            this.txtId_Device.Size = new System.Drawing.Size(171, 23);
+            this.txtId_Device.Size = new System.Drawing.Size(167, 23);
             this.txtId_Device.TabIndex = 58;
-            // 
-            // mntNgayTL
-            // 
-            this.mntNgayTL.Location = new System.Drawing.Point(368, 31);
-            this.mntNgayTL.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
-            this.mntNgayTL.MaxSelectionCount = 1;
-            this.mntNgayTL.Name = "mntNgayTL";
-            this.mntNgayTL.TabIndex = 57;
-            this.mntNgayTL.Visible = false;
-            this.mntNgayTL.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.mntNgayTL_DateSelected);
             // 
             // btnDate_Liqui
             // 
             this.btnDate_Liqui.ForeColor = System.Drawing.Color.Black;
-            this.btnDate_Liqui.Location = new System.Drawing.Point(635, 144);
+            this.btnDate_Liqui.Location = new System.Drawing.Point(631, 53);
             this.btnDate_Liqui.Margin = new System.Windows.Forms.Padding(4);
             this.btnDate_Liqui.Name = "btnDate_Liqui";
             this.btnDate_Liqui.Size = new System.Drawing.Size(36, 28);
@@ -143,7 +128,7 @@
             // txtDate_Liqui
             // 
             this.txtDate_Liqui.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDate_Liqui.Location = new System.Drawing.Point(504, 146);
+            this.txtDate_Liqui.Location = new System.Drawing.Point(500, 55);
             this.txtDate_Liqui.Margin = new System.Windows.Forms.Padding(4);
             this.txtDate_Liqui.MaxLength = 20;
             this.txtDate_Liqui.Name = "txtDate_Liqui";
@@ -154,39 +139,18 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(373, 149);
+            this.label3.Location = new System.Drawing.Point(369, 58);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(106, 18);
             this.label3.TabIndex = 53;
             this.label3.Text = "Ngày Thanh Lý";
             // 
-            // txtQty_Device
-            // 
-            this.txtQty_Device.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQty_Device.Location = new System.Drawing.Point(507, 58);
-            this.txtQty_Device.Margin = new System.Windows.Forms.Padding(4);
-            this.txtQty_Device.MaxLength = 20;
-            this.txtQty_Device.Name = "txtQty_Device";
-            this.txtQty_Device.Size = new System.Drawing.Size(163, 23);
-            this.txtQty_Device.TabIndex = 52;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(371, 64);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 18);
-            this.label2.TabIndex = 51;
-            this.label2.Text = "Số Lượng";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(21, 187);
+            this.label6.Location = new System.Drawing.Point(369, 126);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 18);
@@ -384,7 +348,6 @@
             this.Id_Liqui,
             this.Name_Liqui,
             this.Id_Device,
-            this.Qty_Device,
             this.Date_Liqui});
             this.dgvListLiqui.Location = new System.Drawing.Point(143, 357);
             this.dgvListLiqui.Margin = new System.Windows.Forms.Padding(4);
@@ -392,7 +355,30 @@
             this.dgvListLiqui.RowHeadersWidth = 51;
             this.dgvListLiqui.Size = new System.Drawing.Size(903, 214);
             this.dgvListLiqui.TabIndex = 27;
+            this.dgvListLiqui.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListLiqui_CellContentClick);
             this.dgvListLiqui.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvListLiqui_MouseClick);
+            // 
+            // errId_Device
+            // 
+            this.errId_Device.ContainerControl = this;
+            // 
+            // errQty_Device
+            // 
+            this.errQty_Device.ContainerControl = this;
+            // 
+            // errDate_Liqui
+            // 
+            this.errDate_Liqui.ContainerControl = this;
+            // 
+            // mntNgayTL
+            // 
+            this.mntNgayTL.Location = new System.Drawing.Point(405, 14);
+            this.mntNgayTL.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
+            this.mntNgayTL.MaxSelectionCount = 1;
+            this.mntNgayTL.Name = "mntNgayTL";
+            this.mntNgayTL.TabIndex = 59;
+            this.mntNgayTL.Visible = false;
+            this.mntNgayTL.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.mntNgayTL_DateSelected_1);
             // 
             // Id_Liqui
             // 
@@ -418,14 +404,6 @@
             this.Id_Device.Name = "Id_Device";
             this.Id_Device.Width = 125;
             // 
-            // Qty_Device
-            // 
-            this.Qty_Device.DataPropertyName = "Qty_Device";
-            this.Qty_Device.HeaderText = "Số Lượng";
-            this.Qty_Device.MinimumWidth = 6;
-            this.Qty_Device.Name = "Qty_Device";
-            this.Qty_Device.Width = 125;
-            // 
             // Date_Liqui
             // 
             this.Date_Liqui.DataPropertyName = "Date_Liqui";
@@ -433,18 +411,6 @@
             this.Date_Liqui.MinimumWidth = 6;
             this.Date_Liqui.Name = "Date_Liqui";
             this.Date_Liqui.Width = 125;
-            // 
-            // errId_Device
-            // 
-            this.errId_Device.ContainerControl = this;
-            // 
-            // errQty_Device
-            // 
-            this.errQty_Device.ContainerControl = this;
-            // 
-            // errDate_Liqui
-            // 
-            this.errDate_Liqui.ContainerControl = this;
             // 
             // QLThanhLyTB
             // 
@@ -496,20 +462,17 @@
         private System.Windows.Forms.ErrorProvider errName_Liqui;
         private System.Windows.Forms.DataGridView dgvListLiqui;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtQty_Device;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnDate_Liqui;
         private System.Windows.Forms.TextBox txtDate_Liqui;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.MonthCalendar mntNgayTL;
         private System.Windows.Forms.ErrorProvider errId_Device;
         private System.Windows.Forms.ErrorProvider errQty_Device;
         private System.Windows.Forms.ErrorProvider errDate_Liqui;
         private System.Windows.Forms.TextBox txtId_Device;
+        private System.Windows.Forms.MonthCalendar mntNgayTL;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id_Liqui;
         private System.Windows.Forms.DataGridViewTextBoxColumn Name_Liqui;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id_Device;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Qty_Device;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date_Liqui;
     }
 }

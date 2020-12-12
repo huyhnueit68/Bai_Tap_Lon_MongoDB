@@ -41,8 +41,6 @@
             this.txtId_Liqui = new System.Windows.Forms.TextBox();
             this.cbbThietBi = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtQty_Device = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.mntNgayThanhLy = new System.Windows.Forms.MonthCalendar();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -184,8 +182,6 @@
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.txtQty_Device);
-            this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.mntNgayThanhLy);
             this.groupBox2.Controls.Add(this.cbbThietBi);
             this.groupBox2.Controls.Add(this.txtId_Liqui);
@@ -202,33 +198,15 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(1183, 315);
+            this.groupBox2.Size = new System.Drawing.Size(1183, 330);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
-            // txtQty_Device
-            // 
-            this.txtQty_Device.Location = new System.Drawing.Point(235, 218);
-            this.txtQty_Device.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtQty_Device.Name = "txtQty_Device";
-            this.txtQty_Device.Size = new System.Drawing.Size(265, 30);
-            this.txtQty_Device.TabIndex = 48;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(51, 218);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 23);
-            this.label2.TabIndex = 47;
-            this.label2.Text = "Số Lượng";
-            // 
             // mntNgayThanhLy
             // 
-            this.mntNgayThanhLy.Location = new System.Drawing.Point(803, 70);
+            this.mntNgayThanhLy.Location = new System.Drawing.Point(803, 123);
             this.mntNgayThanhLy.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
             this.mntNgayThanhLy.MaxSelectionCount = 1;
             this.mntNgayThanhLy.Name = "mntNgayThanhLy";
@@ -272,7 +250,5 @@
         private System.Windows.Forms.ComboBox cbbThietBi;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.MonthCalendar mntNgayThanhLy;
-        private System.Windows.Forms.TextBox txtQty_Device;
-        private System.Windows.Forms.Label label2;
     }
 }

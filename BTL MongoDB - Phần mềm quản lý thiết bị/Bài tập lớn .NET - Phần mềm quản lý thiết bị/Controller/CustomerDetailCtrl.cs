@@ -72,7 +72,6 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.Controller
                 var collection = db.GetCollection<Object.ObjCustomerGroup>("Group_Customer"); //truy cập collection
                 var query = Builders<Object.ObjCustomerGroup>.Filter.Eq("Id_Group", id);
                 var result = collection.Find(query).ToList();
-                MessageBox.Show("ma ton tai la: " + result.Count.ToString());
                 if (result.Count <= 0)
                     return false;
                 else

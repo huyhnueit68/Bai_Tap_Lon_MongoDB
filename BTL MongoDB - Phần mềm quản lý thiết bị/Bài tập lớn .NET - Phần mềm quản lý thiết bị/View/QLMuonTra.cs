@@ -159,13 +159,27 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
             }
         }
 
+        private bool CheckDateTimeQuery(string start, string end)
+        {
+            DateTime dateTime1 = Convert.ToDateTime(start);
+            DateTime dateTime2 = Convert.ToDateTime(end);
+            if(dateTime2.Subtract(dateTime1).TotalSeconds < 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
             if (checkNullTextBox() == false)
             {
                 MessageBox.Show("Xin mời nhập đầy đủ thông tin!", "Cảnh báo");
             }
-            else
+            else if(CheckDateTimeQuery(txtDate_Rent.Text, txtDate_Pay.Text))
             {
                 Object.ObjRentDevice objRentDevice = new Object.ObjRentDevice();
                 SetDataRentDetail(objRentDevice);
@@ -184,6 +198,10 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
                         MessageBox.Show("Id Customer hoặc Id Device không tồn tại, vui lòng thử lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn ngày mượn nhỏ hơn ngày trả", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -303,6 +321,14 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
         private void mntNgayTra_DateChanged(object sender, DateRangeEventArgs e)
         {
 
+        }
+
+        private void txtTimKiem_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -29,6 +29,9 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
                 btnThanhLyTB.Enabled = false;
                 btnTimKiem.Enabled = false;
             }
+            txtId_Device.Enabled = false;
+            txtId_Liqui.Enabled = false;
+            txtDate_Liqui.Enabled = false;
             liquiMng.HienThi(dgvListLiqui);
             HienThiThongTin();
         }
@@ -46,7 +49,6 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
                 txtId_Liqui.Text = dgvListLiqui.CurrentRow.Cells["Id_Liqui"].Value.ToString();
                 txtName_Liqui.Text = dgvListLiqui.CurrentRow.Cells["Name_Liqui"].Value.ToString();
                 txtId_Device.Text = dgvListLiqui.CurrentRow.Cells["Id_Device"].Value.ToString();
-                txtQty_Device.Text = dgvListLiqui.CurrentRow.Cells["Qty_Device"].Value.ToString();
                 txtDate_Liqui.Text = dgvListLiqui.CurrentRow.Cells["Date_Liqui"].Value.ToString();
             }
         }
@@ -68,7 +70,6 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
             txtDate_Liqui.Clear();
             txtId_Liqui.Clear();
             txtName_Liqui.Clear();
-            txtQty_Device.Clear();
             txtTimKiem.Clear();
             txtId_Device.Text = "";
         }
@@ -81,7 +82,7 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
             }
             else
             {
-                string id_customer = dgvListLiqui.CurrentRow.Cells[0].Value.ToString();
+                string id_customer = dgvListLiqui.CurrentRow.Cells["Id_Liqui"].Value.ToString();
 
                 DialogResult dlg = MessageBox.Show("Bạn có chắc chắn muốn xóa dữ liệu này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -114,11 +115,6 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
                 errName_Liqui.SetError(txtName_Liqui, "Nhập vào tên thanh lý");
                 return false;
             }
-            if (txtQty_Device.Text.Trim() == "")
-            {
-                errQty_Device.SetError(txtQty_Device, "Nhập vào số lượng thiết bị");
-                return false;
-            }
             if (txtId_Device.Text.Trim() == "")
             {
                 errId_Device.SetError(txtId_Device, "Nhập thiết bị");
@@ -134,9 +130,7 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
                 errId_Liqui.SetError(txtId_Liqui, "");
                 errId_Device.SetError(txtId_Device, "");
                 errName_Liqui.SetError(txtName_Liqui, "");
-                errDate_Liqui.SetError(txtDate_Liqui, "");
-                errQty_Device.SetError(txtQty_Device, "");
-               
+                errDate_Liqui.SetError(txtDate_Liqui, "");               
                 return true;
             }
         }
@@ -152,7 +146,6 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
                 Object.ObjLiqui objLiqui = new Object.ObjLiqui();
                 SetDataLiqui(objLiqui);
 
-                string Id_Customer = dgvListLiqui.CurrentRow.Cells[0].Value.ToString();
                 DialogResult dlg = MessageBox.Show("Bạn có chắc chắn muốn đổi dữ liệu này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dlg == DialogResult.Yes)
                 {
@@ -172,12 +165,10 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
 
         private void SetDataLiqui(Object.ObjLiqui objLiqui)
         {
-            objLiqui.Id_Liqui = txtId_Liqui.Text;
-            objLiqui.Name_Liqui = txtId_Liqui.Text;
-            objLiqui.Id_Device = txtId_Liqui.Text;
-            objLiqui.Qty_Device = txtQty_Device.Text;
-            objLiqui.Date_Liqui = txtDate_Liqui.Text;
-            
+            objLiqui.Id_Liqui = Convert.ToDouble(txtId_Liqui.Text);
+            objLiqui.Name_Liqui = txtName_Liqui.Text;
+            objLiqui.Id_Device = Convert.ToDouble(txtId_Device.Text);
+            objLiqui.Date_Liqui = Convert.ToDateTime(txtDate_Liqui.Text);
         }
 
         private void dgvListLiqui_MouseClick(object sender, MouseEventArgs e)
@@ -230,6 +221,17 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
         {
             View.AddThanhLy thanhLy = new AddThanhLy();
             thanhLy.Show();
+        }
+
+        private void mntNgayTL_DateSelected_1(object sender, DateRangeEventArgs e)
+        {
+            txtDate_Liqui.Text = mntNgayTL.SelectionStart.ToShortDateString();
+            mntNgayTL.Visible = false;
+        }
+
+        private void dgvListLiqui_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

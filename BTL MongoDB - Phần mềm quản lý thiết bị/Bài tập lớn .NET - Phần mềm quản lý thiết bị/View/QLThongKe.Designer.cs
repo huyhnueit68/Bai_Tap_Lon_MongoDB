@@ -29,12 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QLThongKe));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QLThongKe));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dgvThongKe = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lblTongTBSuDung = new System.Windows.Forms.Label();
@@ -54,58 +52,40 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btnLamMoi = new System.Windows.Forms.Button();
             this.loadThongKe = new System.Windows.Forms.Timer(this.components);
+            this.dgvListRentDevice = new System.Windows.Forms.DataGridView();
+            this.Id_Rent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date_Rent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date_Pay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name_Device = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status_Device = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id_Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name_Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id_Device = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Room = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id_Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id_Group = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvThongKe)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListRentDevice)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dgvThongKe);
+            this.groupBox1.Controls.Add(this.dgvListRentDevice);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox1.Location = new System.Drawing.Point(44, 159);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(783, 519);
             this.groupBox1.TabIndex = 29;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông Tin Thống Kê";
-            // 
-            // dgvThongKe
-            // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Transparent;
-            this.dgvThongKe.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvThongKe.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvThongKe.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvThongKe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvThongKe.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dgvThongKe.Location = new System.Drawing.Point(7, 46);
-            this.dgvThongKe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgvThongKe.Name = "dgvThongKe";
-            this.dgvThongKe.RowHeadersWidth = 51;
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            this.dgvThongKe.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvThongKe.RowTemplate.Height = 24;
-            this.dgvThongKe.Size = new System.Drawing.Size(769, 468);
-            this.dgvThongKe.TabIndex = 0;
-            this.dgvThongKe.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            this.dgvThongKe.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvThongKe_MouseClick);
             // 
             // panel1
             // 
@@ -114,7 +94,7 @@
             this.panel1.Controls.Add(this.lblTongTBSuDung);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(44, 18);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(488, 111);
             this.panel1.TabIndex = 30;
@@ -123,7 +103,7 @@
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(368, 14);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(116, 97);
             this.pictureBox3.TabIndex = 10;
@@ -161,7 +141,7 @@
             this.panel2.Controls.Add(this.lblTongTBThanhLy);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Location = new System.Drawing.Point(724, 18);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(488, 111);
             this.panel2.TabIndex = 31;
@@ -170,7 +150,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(363, 14);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(125, 110);
             this.pictureBox1.TabIndex = 8;
@@ -214,9 +194,9 @@
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox2.Location = new System.Drawing.Point(836, 159);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(376, 519);
             this.groupBox2.TabIndex = 32;
             this.groupBox2.TabStop = false;
@@ -225,7 +205,7 @@
             // txtName_Customer
             // 
             this.txtName_Customer.Location = new System.Drawing.Point(145, 335);
-            this.txtName_Customer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtName_Customer.Margin = new System.Windows.Forms.Padding(4);
             this.txtName_Customer.Name = "txtName_Customer";
             this.txtName_Customer.Size = new System.Drawing.Size(213, 26);
             this.txtName_Customer.TabIndex = 37;
@@ -264,7 +244,7 @@
             // 
             this.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpEnd.Location = new System.Drawing.Point(133, 153);
-            this.dtpEnd.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.dtpEnd.Margin = new System.Windows.Forms.Padding(5);
             this.dtpEnd.Name = "dtpEnd";
             this.dtpEnd.Size = new System.Drawing.Size(213, 26);
             this.dtpEnd.TabIndex = 33;
@@ -273,7 +253,7 @@
             // 
             this.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpStart.Location = new System.Drawing.Point(133, 113);
-            this.dtpStart.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.dtpStart.Margin = new System.Windows.Forms.Padding(5);
             this.dtpStart.Name = "dtpStart";
             this.dtpStart.Size = new System.Drawing.Size(213, 26);
             this.dtpStart.TabIndex = 32;
@@ -286,7 +266,7 @@
             this.btnThemThanhLy.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThemThanhLy.ForeColor = System.Drawing.Color.White;
             this.btnThemThanhLy.Location = new System.Drawing.Point(8, 50);
-            this.btnThemThanhLy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnThemThanhLy.Margin = new System.Windows.Forms.Padding(4);
             this.btnThemThanhLy.Name = "btnThemThanhLy";
             this.btnThemThanhLy.Size = new System.Drawing.Size(356, 55);
             this.btnThemThanhLy.TabIndex = 29;
@@ -302,7 +282,7 @@
             this.button1.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(8, 438);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(352, 57);
             this.button1.TabIndex = 31;
@@ -318,7 +298,7 @@
             this.btnLamMoi.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLamMoi.ForeColor = System.Drawing.Color.White;
             this.btnLamMoi.Location = new System.Drawing.Point(8, 258);
-            this.btnLamMoi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLamMoi.Margin = new System.Windows.Forms.Padding(4);
             this.btnLamMoi.Name = "btnLamMoi";
             this.btnLamMoi.Size = new System.Drawing.Size(356, 57);
             this.btnLamMoi.TabIndex = 30;
@@ -331,6 +311,125 @@
             this.loadThongKe.Interval = 1000;
             this.loadThongKe.Tick += new System.EventHandler(this.loadThongKe_Tick);
             // 
+            // dgvListRentDevice
+            // 
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            this.dgvListRentDevice.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvListRentDevice.BackgroundColor = System.Drawing.Color.LightBlue;
+            this.dgvListRentDevice.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
+            this.dgvListRentDevice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListRentDevice.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id_Rent,
+            this.Date_Rent,
+            this.Date_Pay,
+            this.Name_Device,
+            this.Status_Device,
+            this.Id_Type,
+            this.Name_Customer,
+            this.Id_Device,
+            this.Room,
+            this.Id_Customer,
+            this.Id_Group});
+            this.dgvListRentDevice.Location = new System.Drawing.Point(1, 27);
+            this.dgvListRentDevice.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvListRentDevice.Name = "dgvListRentDevice";
+            this.dgvListRentDevice.RowHeadersWidth = 51;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvListRentDevice.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvListRentDevice.Size = new System.Drawing.Size(783, 484);
+            this.dgvListRentDevice.TabIndex = 26;
+            // 
+            // Id_Rent
+            // 
+            this.Id_Rent.DataPropertyName = "Id_Rent";
+            this.Id_Rent.HeaderText = "Mã Mượn";
+            this.Id_Rent.MinimumWidth = 6;
+            this.Id_Rent.Name = "Id_Rent";
+            this.Id_Rent.Width = 125;
+            // 
+            // Date_Rent
+            // 
+            this.Date_Rent.DataPropertyName = "Date_Rent";
+            this.Date_Rent.HeaderText = "Ngày Mượn";
+            this.Date_Rent.MinimumWidth = 6;
+            this.Date_Rent.Name = "Date_Rent";
+            this.Date_Rent.ReadOnly = true;
+            this.Date_Rent.Width = 125;
+            // 
+            // Date_Pay
+            // 
+            this.Date_Pay.DataPropertyName = "Date_Pay";
+            this.Date_Pay.HeaderText = "Ngày Trả";
+            this.Date_Pay.MinimumWidth = 6;
+            this.Date_Pay.Name = "Date_Pay";
+            this.Date_Pay.Width = 125;
+            // 
+            // Name_Device
+            // 
+            this.Name_Device.DataPropertyName = "Name_Device";
+            this.Name_Device.HeaderText = "Tên Thiết Bị";
+            this.Name_Device.MinimumWidth = 6;
+            this.Name_Device.Name = "Name_Device";
+            this.Name_Device.Width = 125;
+            // 
+            // Status_Device
+            // 
+            this.Status_Device.DataPropertyName = "Status_Device";
+            this.Status_Device.HeaderText = "Trang Thái";
+            this.Status_Device.MinimumWidth = 6;
+            this.Status_Device.Name = "Status_Device";
+            this.Status_Device.Width = 125;
+            // 
+            // Id_Type
+            // 
+            this.Id_Type.DataPropertyName = "Id_Type";
+            this.Id_Type.HeaderText = "Mã Loại TB";
+            this.Id_Type.MinimumWidth = 6;
+            this.Id_Type.Name = "Id_Type";
+            this.Id_Type.Width = 125;
+            // 
+            // Name_Customer
+            // 
+            this.Name_Customer.DataPropertyName = "Name_Customer";
+            this.Name_Customer.HeaderText = "Tên Khách Hàng";
+            this.Name_Customer.MinimumWidth = 6;
+            this.Name_Customer.Name = "Name_Customer";
+            this.Name_Customer.Width = 125;
+            // 
+            // Id_Device
+            // 
+            this.Id_Device.DataPropertyName = "Id_Device";
+            this.Id_Device.HeaderText = "Mã Thiết Bị";
+            this.Id_Device.MinimumWidth = 6;
+            this.Id_Device.Name = "Id_Device";
+            this.Id_Device.Width = 125;
+            // 
+            // Room
+            // 
+            this.Room.DataPropertyName = "Room";
+            this.Room.HeaderText = "Phòng";
+            this.Room.MinimumWidth = 6;
+            this.Room.Name = "Room";
+            this.Room.Width = 125;
+            // 
+            // Id_Customer
+            // 
+            this.Id_Customer.DataPropertyName = "Id_Customer";
+            this.Id_Customer.HeaderText = "Mã khách hàng";
+            this.Id_Customer.MinimumWidth = 6;
+            this.Id_Customer.Name = "Id_Customer";
+            this.Id_Customer.Width = 125;
+            // 
+            // Id_Group
+            // 
+            this.Id_Group.DataPropertyName = "Id_Group";
+            this.Id_Group.HeaderText = "Mã Nhóm";
+            this.Id_Group.MinimumWidth = 6;
+            this.Id_Group.Name = "Id_Group";
+            this.Id_Group.Width = 125;
+            // 
             // QLThongKe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -342,12 +441,11 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "QLThongKe";
             this.Text = "QLThongKe";
             this.Load += new System.EventHandler(this.QLThongKe_Load);
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvThongKe)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -356,6 +454,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListRentDevice)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -370,7 +469,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DataGridView dgvThongKe;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
@@ -382,5 +480,17 @@
         private System.Windows.Forms.TextBox txtName_Customer;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Timer loadThongKe;
+        private System.Windows.Forms.DataGridView dgvListRentDevice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id_Rent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date_Rent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date_Pay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name_Device;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status_Device;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id_Type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name_Customer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id_Device;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Room;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id_Customer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id_Group;
     }
 }

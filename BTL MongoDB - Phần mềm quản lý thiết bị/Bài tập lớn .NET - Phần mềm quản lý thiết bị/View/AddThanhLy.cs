@@ -44,7 +44,6 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
             txtDate_Liqui.Clear();
             txtId_Liqui.Clear();
             txtName_Liqui.Clear();
-            txtQty_Device.Clear();
             cbbThietBi.Text = "";
         }
 
@@ -79,7 +78,6 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
             txtDate_Liqui.Clear();
             txtId_Liqui.Clear();
             txtName_Liqui.Clear();
-            txtQty_Device.Clear();
             cbbThietBi.Text = "";
         }
 
@@ -92,19 +90,18 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
         //Hàm xử lý lưu dữ liệu.
         private void GanDuLieu(Object.ObjLiqui objLiqui)
         {
-            objLiqui.Id_Liqui = txtId_Liqui.Text.Trim();
+            objLiqui.Id_Liqui = Convert.ToDouble(txtId_Liqui.Text.Trim());
             objLiqui.Name_Liqui = txtName_Liqui.Text.Trim();
-            objLiqui.Qty_Device = txtQty_Device.Text.Trim();
-            objLiqui.Date_Liqui = txtQty_Device.Text.Trim();
+            objLiqui.Date_Liqui = Convert.ToDateTime(txtDate_Liqui.Text.Trim());
 
             string value = cbbThietBi.SelectedValue.ToString();
-            objLiqui.Id_Device = value;
+            objLiqui.Id_Device = Convert.ToDouble(value);
         }
 
 
         private bool checkNullItem()
         {
-            if (txtId_Liqui.Text == "" || txtName_Liqui.Text == "" || txtQty_Device.Text == "" || cbbThietBi.Text == "" || txtDate_Liqui.Text == "")
+            if (txtId_Liqui.Text == "" || txtName_Liqui.Text == "" || cbbThietBi.Text == "" || txtDate_Liqui.Text == "")
             {
                 return false;
             }
@@ -115,6 +112,8 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
         {
             liquiCtrl.HienThiCbbThietBi(cbbThietBi);
             txtDate_Liqui.Enabled = false;
+            this.cbbThietBi.DropDownStyle = ComboBoxStyle.DropDownList;
+
         }
 
         private void mntNgayThanhLy_DateSelected(object sender, DateRangeEventArgs e)

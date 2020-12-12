@@ -81,12 +81,20 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
                         switch (rentDeviceCtrl.Them(rentDevice))
                         {
                             case 0:
-                                text = "Vui lòng chọn mã người dùng khác!";
+                                text = "Vui lòng chọn mã mượn khác!";
                                 ThongBao(text);
                                 break;
                             case 1:
                                 MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 LamMoi();
+                                break;
+                            case 2:
+                                text = "Vui lòng chọn mã khách hàng khác!";
+                                ThongBao(text);
+                                break;
+                            case 3:
+                                text = "Vui lòng chọn thiết bị hàng khác!";
+                                ThongBao(text);
                                 break;
                         }
                     }
@@ -104,7 +112,7 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
 
         private bool checkNullItem()
         {
-            if (txtDate_Pay.Text == "" || txtDate_Rent.Text == "" || txtId_Customer.Text == "")
+            if (txtId_Rent.Text == "" ||txtDate_Pay.Text == "" || txtDate_Rent.Text == "" || txtId_Customer.Text == "")
                 return false;
             else
                 return true;
@@ -112,7 +120,6 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
 
         private bool CheckDateTimeRent()
         {
-
             TimeSpan value = mntNgayTra.SelectionStart.Subtract(mntNgayMuon.SelectionStart);
             
             if (value.TotalSeconds > 0)
@@ -134,11 +141,14 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
             txtDate_Pay.Clear();
             txtId_Customer.Clear();
             cbbThietBi.Text = "";
+            txtId_Rent.Text = "";
         }
 
         //Hàm xử lý lưu dữ liệu.
         private void GanDuLieu(Object.ObjRentDevice rentDevice)
         {
+            rentDevice.Id_Rent = Convert.ToDouble(txtId_Rent.Text.Trim());
+
             rentDevice.Date_Rent = Convert.ToDateTime(txtDate_Rent.Text.Trim());
             rentDevice.Date_Pay = Convert.ToDateTime(txtDate_Pay.Text.Trim());
 
@@ -165,6 +175,23 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
             {
                 e.Handled = true;
             }
+        }
+
+        private void mntNgayMuon_DateSelected_1(object sender, DateRangeEventArgs e)
+        {
+            txtDate_Rent.Text = mntNgayMuon.SelectionStart.ToShortDateString();
+            mntNgayMuon.Visible = false;
+        }
+
+        private void mntNgayTra_DateSelected_1(object sender, DateRangeEventArgs e)
+        {
+            txtDate_Pay.Text = mntNgayTra.SelectionStart.ToShortDateString();
+            mntNgayTra.Visible = false;
+        }
+
+        private void cbbThietBi_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

@@ -99,7 +99,6 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
                 Object.ObjRentDevice objRentDevice = new Object.ObjRentDevice();
                 SetDataRentDetail(objRentDevice);
 
-                string Id_Customer = dgvListRentDevice.CurrentRow.Cells[0].Value.ToString();
                 DialogResult dlg = MessageBox.Show("Bạn có chắc chắn muốn trả thiết bị này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dlg == DialogResult.Yes)
                 {

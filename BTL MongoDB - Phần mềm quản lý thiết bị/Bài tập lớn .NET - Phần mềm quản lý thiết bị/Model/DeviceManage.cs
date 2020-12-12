@@ -50,7 +50,6 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.Model
             var collection = db.GetCollection<Object.ObjDevice>("Device"); //truy cập collection
             var Filter = Builders<Object.ObjDevice>.Filter.Eq("Id_Device", id);
             collection.DeleteMany(Filter);
-            MessageBox.Show("Xóa thành công", "Thông báo");
             return 1;
         }
 

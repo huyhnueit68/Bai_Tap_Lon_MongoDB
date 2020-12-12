@@ -26,12 +26,15 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
         //fillChart method  
         private void fillChart()
         {
-            DataSet ds = new DataSet();
-            ds = statisticalMng.getDeviceToChar();
-            chartThanhLy.DataSource = ds;
-            chartThanhLy.Series["Total"].XValueMember = "Year";
+            chartThanhLy.DataSource = statisticalMng.getDeviceToChar().DataSource;
+            chartThanhLy.Series["Total"].XValueMember = "_id";
             chartThanhLy.Series["Total"].YValueMembers = "Total";
             chartThanhLy.Titles.Add("Total Device Chart");
+        }
+
+        private void chartThanhLy_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -6,6 +6,11 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MongoDB.Driver;
+using MongoDB.Bson;
+using MongoDB.Driver.Linq;
+using System.Windows.Forms;
+using Microsoft.Build.Framework.XamlTypes;
 
 namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.Model
 {
@@ -13,108 +18,79 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.Model
     {
         DataConfig cls = new DataConfig();
 
-        public DataTable HTTongTBDung()
+        public int HTTongTBDung()
         {
-            SqlConnection connect = ConnectDatabase.connect;
-            string query = "SELECT COUNT(*) AS Total_Device FROM Device WHERE Status_Device = N'Đang sử dụng'";
-
-            //action get database
-            DataTable result = new DataTable();
-            try
-            {
-                SqlDataAdapter sqldata = new SqlDataAdapter(query, connect);
-                sqldata.Fill(result);
-            }
-            catch (Exception ce)
-            {
-                
-            }
-            return result;
+            var client = new MongoClient("mongodb://127.0.0.1/27017"); // đường dẫn đến server
+            var db = client.GetDatabase("QuanLyThietBi"); //truy cập vào database
+            var collection = db.GetCollection<Object.ObjDevice>("Device"); //truy cập collection
+            var query = Builders<Object.ObjDevice>.Filter.Eq("Status_Device","Đang sử dụng");
+            var result = collection.Find(query).ToList();
+            return result.Count;
         }
 
-        public DataTable HTTongThanhLy()
+        public int HTTongThanhLy()
         {
-            SqlConnection connect = ConnectDatabase.connect;
-            string query = "SELECT COUNT(*) AS Total_Liqui FROM Liquidate";
-
-            //action get database
-            DataTable result = new DataTable();
-            try
-            {
-                SqlDataAdapter sqldata = new SqlDataAdapter(query, connect);
-                result = new DataTable();
-                sqldata.Fill(result);
-            }
-            catch (Exception ce)
-            {
-
-            }
-            return result;
+            var client = new MongoClient("mongodb://127.0.0.1/27017"); // đường dẫn đến server
+            var db = client.GetDatabase("QuanLyThietBi"); //truy cập vào database
+            var collection = db.GetCollection<Object.ObjLiqui>("Liquidate"); //truy cập collection
+            var result = collection.AsQueryable<Object.ObjLiqui>().ToList();
+            return result.Count;
         }
 
-        public DataSet getListDeviceByTime(DateTime start, DateTime end)
+        public DataGridView getListDeviceByTime(DateTime start, DateTime end)
         {
-            SqlCommand sqlcmd = new SqlCommand("SELECT D.Id_Device AS 'MÃ THIẾT BỊ', " +
-                "D.Name_Device AS 'TÊN THIẾT BỊ', " +
-                "RD.Qty_Device AS 'SỐ LƯỢNG MƯỢN', " +
-                "RD.Id_Rent AS 'MÃ MƯỢN', " +
-                "RD.Date_Rent AS 'NGÀY MƯỢN', " +
-                "CD.Name_Customer AS 'TÊN NGƯỜI DÙNG' FROM Rent_Device AS RD, " +
-                "Device AS D, " +
-                "Customer_Detail AS CD " +
-                "WHERE Date_Rent >= '" + start.ToString() + "' " +
-                "AND Date_Rent <= '" + end.ToString() + "' " +
-                "AND RD.Id_Device = D.Id_Device " +
-                "AND RD.Id_Customer = CD.Id_Customer");
-            try
-            {
-                return cls.LayDuLieu(sqlcmd);
-            }
-            catch (Exception ce)
-            {
-                return null;
-            }
+            DataGridView dgv = new DataGridView();
+            var client = new MongoClient("mongodb://127.0.0.1/27017"); // đường dẫn đến server
+            var db = client.GetDatabase("QuanLyThietBi"); //truy cập vào database
+            var collection = db.GetCollection<Object.ObjRentDevice>("Rent_Device"); //truy cập collection
+            var query = Builders<Object.ObjRentDevice>.Filter.Gte("Date_Rent", start) & Builders<Object.ObjRentDevice>.Filter.Lte("Date_Pay", end);
+            var result = collection.Find(query).ToList();
+            dgv.DataSource = result;
+            return dgv;
         }
 
-        public DataSet getListDeviceByName(string name)
+        public DataGridView getListDeviceByName(string name)
         {
-            SqlCommand sqlcmd = new SqlCommand("SELECT D.Id_Device as 'MÃ THIẾT BỊ', " +
-                "D.Name_Device as 'TÊN THIẾT BỊ', " +
-                "RD.Qty_Device as 'SỐ LƯỢNG MƯỢN', " +
-                "RD.Date_Rent as 'NGÀY MƯỢN', " +
-                "CD.Name_Customer AS 'TÊN NGƯỜI DÙNG' " +
-                "FROM Rent_Device as RD, Device as D, Customer_Detail as CD " +
-                "WHERE CD.Name_Customer LIKE '%"+name+"%' " +
-                "AND RD.Id_Device = D.Id_Device " +
-                "AND RD.Id_Customer = CD.Id_Customer");
-            try
-            {
-                return cls.LayDuLieu(sqlcmd);
-            }
-            catch (Exception ce)
-            {
-                return null;
-            }
+            DataGridView dataGrid = new DataGridView();
+            var client = new MongoClient("mongodb://127.0.0.1/27017"); // đường dẫn đến server
+            var db = client.GetDatabase("QuanLyThietBi"); //truy cập vào database
+            var collection = db.GetCollection<Object.ObjRentDevice>("Rent_Device"); //truy cập collection
+            List<Object.ObjRentDevice> result;
+            FilterDefinition<Object.ObjRentDevice> query;
+            query = Builders<Object.ObjRentDevice>.Filter.Eq("Name_Customer", name);
+            result = collection.Find(query).ToList();
+            dataGrid.DataSource = result;
+            return dataGrid;
 
         }
 
-        public DataSet getDeviceToChar()
+        public DataGridView getDeviceToChar()
         {
-            SqlConnection connect = ConnectDatabase.connect;
-            string query = "SELECT DATEPART(yyyy, Date_Liqui) AS 'Year', SUM(Qty_Device) AS 'Total' FROM Liquidate GROUP BY DATEPART(yyyy, Date_Liqui)";
+            DataGridView dgv = new DataGridView();
 
-            //action get database
-            DataSet result = new DataSet();
-            try
-            {
-                SqlDataAdapter sqldata = new SqlDataAdapter(query, connect);
-                sqldata.Fill(result);
-            }
-            catch (Exception ce)
-            {
-
-            }
-            return result;
+            var client = new MongoClient("mongodb://127.0.0.1/27017"); // đường dẫn đến server
+            var db = client.GetDatabase("QuanLyThietBi"); //truy cập vào database
+            var collection = db.GetCollection<Object.ObjThongKe>("Liquidate"); //truy cập collection
+            var query = new BsonDocument[] {
+                new BsonDocument{
+                    {
+                        "$group", new BsonDocument {
+                            { "_id", "$Date_Liqui" },
+                            { "Total", new BsonDocument { { "$sum", 1 } } },
+                        }
+                    }
+                },
+                new BsonDocument{
+                    {
+                        "$project", new BsonDocument {
+                            { "Total", 1}
+                        }
+                    }
+                }
+            };
+            var result = collection.Aggregate<Object.ObjThongKe>(query).ToList();
+            dgv.DataSource = result;
+            return dgv;
         }
     }
 }

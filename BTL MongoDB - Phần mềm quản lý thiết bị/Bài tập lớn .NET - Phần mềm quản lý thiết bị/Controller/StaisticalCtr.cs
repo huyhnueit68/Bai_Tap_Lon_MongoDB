@@ -13,12 +13,12 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.Controller
 
         public void ThongKeTheoTime(DataGridView dgv, DateTime start, DateTime end)
         {
-            dgv.DataSource = StatisticalMng.getListDeviceByTime(start, end).Tables[0];
+            dgv.DataSource = StatisticalMng.getListDeviceByTime(start, end).DataSource;
         }
 
         public void ThongKeTheoTen(DataGridView dgv, string name)
         {
-            dgv.DataSource = StatisticalMng.getListDeviceByName(name).Tables[0];
+            dgv.DataSource = StatisticalMng.getListDeviceByName(name).DataSource;
         }
     }
 }

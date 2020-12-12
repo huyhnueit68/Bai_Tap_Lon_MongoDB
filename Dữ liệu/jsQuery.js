@@ -27,3 +27,25 @@ db.getCollection("Device").aggregate([
         }
     },
 ]).pretty();
+
+
+db.Rent_Device.find( { 
+    $and: [ 
+        { Date_Rent: { $gte: new Date("1900-10-01T00:00:00.000Z") } },
+        { Date_Pay: { $lte: new Date("2021-10-01T00:00:00.000Z") } } 
+    ]
+})
+    
+
+db.Liquidate.aggregate([
+   { $group: { 
+           _id: "$Date_Liqui",
+           total: { $sum: 1 } 
+       } 
+   },
+   {
+      $project: {
+        total: 1
+      }
+   }
+])

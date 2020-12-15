@@ -1,0 +1,15 @@
+use QuanLyThietBi
+
+db.createCollection("Customer");
+db.createCollection("Group_Customer");
+
+db.createCollection("Device");
+db.createCollection("Type_Device");
+
+db.createCollection("Rent_Device");
+db.createCollection("Liquidate");
+
+load("C:/Document Study/LEARN/HK5/CSDL-NC/Bai_Tap_Lon_MongoDB/Dữ liệu/jsCustomer.js")
+load("C:/Document Study/LEARN/HK5/CSDL-NC/Bai_Tap_Lon_MongoDB/Dữ liệu/jsDevice.js")
+load("C:/Document Study/LEARN/HK5/CSDL-NC/Bai_Tap_Lon_MongoDB/Dữ liệu/jsRentDevice.js")
+load("C:/Document Study/LEARN/HK5/CSDL-NC/Bai_Tap_Lon_MongoDB/Dữ liệu/jsLiquidate.js")

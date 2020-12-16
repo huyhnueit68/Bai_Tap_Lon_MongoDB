@@ -185,12 +185,25 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.Model
             {
                 case "Id_Rent":
                     {
-                        query = Builders<Object.ObjRentDevice>.Filter.Eq("Id_Rent", key);
+                        if(Login.getIdCustomerLogin() != "1")
+                        {
+                            query = Builders<Object.ObjRentDevice>.Filter.Eq("Id_Rent", key) & Builders<Object.ObjRentDevice>.Filter.Eq("Id_Customer", Login.getIdCustomerLogin());
+                        } else
+                        {
+                            query = Builders<Object.ObjRentDevice>.Filter.Eq("Id_Rent", key);
+                        }
                         break;
                     }
                 default:
                     {
-                        query = Builders<Object.ObjRentDevice>.Filter.Eq("Id_Device", key);
+                        if (Login.getIdCustomerLogin() != "1")
+                        {
+                            query = Builders<Object.ObjRentDevice>.Filter.Eq("Id_Device", key) & Builders<Object.ObjRentDevice>.Filter.Eq("Id_Customer", Login.getIdCustomerLogin());
+                        }
+                        else
+                        {
+                            query = Builders<Object.ObjRentDevice>.Filter.Eq("Id_Rent", key);
+                        }
                         break;
                     }
             }

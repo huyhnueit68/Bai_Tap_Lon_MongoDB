@@ -57,8 +57,20 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
             var client = new MongoClient("mongodb://127.0.0.1/27017"); // đường dẫn đến server
             var db = client.GetDatabase("QuanLyThietBi"); //truy cập vào database
             var collection = db.GetCollection<Object.ObjRentDevice>("Rent_Device"); //truy cập collection book
-            var result = collection.AsQueryable<Object.ObjRentDevice>().ToList();
-            dgvListRentDevice.DataSource = result;
+            if (Login.getIdCustomerLogin() == "1")
+            {
+                var result = collection.AsQueryable<Object.ObjRentDevice>().ToList();
+                dgvListRentDevice.DataSource = result;
+            } 
+            else
+            {
+                List<Object.ObjRentDevice> result;
+                FilterDefinition<Object.ObjRentDevice> query;
+                query = Builders<Object.ObjRentDevice>.Filter.Eq("Id_Customer", Login.getIdCustomerLogin() == "1");
+                result = collection.Find(query).ToList();
+                dgvListRentDevice.DataSource = result;
+            }
+            
         }
 
         //Hàm xử lý load dữ liệu từ dgv lên các text.

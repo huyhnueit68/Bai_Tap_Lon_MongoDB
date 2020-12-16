@@ -28,7 +28,7 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị.View
             {
                 btnXoa.Enabled = false;
                 btnThemTK.Enabled = false;
-                btnTimKiem.Enabled = false;
+                btnCapNhat.Enabled = false;
             }
             ShowDLLoaiTB();
             HienThiThongTin();

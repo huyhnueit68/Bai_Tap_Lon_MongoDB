@@ -82,7 +82,6 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị
             {
                 try
                 {
-
                     if (item.Id_Group.ToString() == "1")
                     {
                         nameLogin = item.Name_Customer.Trim();
@@ -103,7 +102,7 @@ namespace Bài_tập_lớn.NET___Phần_mềm_quản_lý_thiết_bị
             {
                 try
                 {
-                    if (item.Id_Group.ToString() != "1")
+                    if (item.Id_Group.ToString() != "0" && item.Id_Group.ToString() != "1")
                     {
                         nameLogin = item.Name_Customer.ToString();
                         resultLogin = 0;
